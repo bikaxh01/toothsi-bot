@@ -34,12 +34,12 @@ async def startup_db_client():
 async def root():
     try:
         # Group pincode data by city and store in KnowledgeBase
-        result = await vector_search("delhi")
+        # result = await group_pincode_data_by_city_and_store()
         
         return {
             "message": "Hello World", 
             "operation": "grouped_pincode_data_by_city_and_stored_in_knowledge_base",
-            "result": result
+            "result": "result"
         }
         
     except Exception as e:

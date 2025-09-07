@@ -9,44 +9,20 @@ from utils.analyst import vector_search, generate_embedding
 
 async def extract_pincode_data() -> List[Dict]:
     """
-    Extract pincode data from both Excel files and return a single list.
+    Extract pincode data from Excel file and return a list.
     Returns a list of dictionaries with keys: pincode, home_scan, clinic_1, clinic_2, city
     """
     try:
-        # Read both Excel files
-        df1 = pd.read_excel('pincode_data(1).xlsx')
-        df2 = pd.read_excel('pincode_data(2).xlsx')
+        # Read Excel file
+        df = pd.read_excel('pincode_data(2).xlsx')
         
-        logger.info(f"Successfully read pincode_data(1).xlsx with {len(df1)} rows")
-        logger.info(f"Successfully read pincode_data(2).xlsx with {len(df2)} rows")
+        logger.info(f"Successfully read pincode_data(2).xlsx with {len(df)} rows")
         
         # Initialize result list
         result = []
         
-        # Process first file
-        for index, row in df1.iterrows():
-            pincode = str(row['pincode']).strip() if pd.notna(row['pincode']) else ""
-            home_scan = str(row['home_scan_available']).strip() if pd.notna(row['home_scan_available']) else ""
-            clinic_1 = str(row['clinic_1']).strip() if pd.notna(row['clinic_1']) else ""
-            clinic_2 = str(row['clinic_2']).strip() if pd.notna(row['clinic_2']) else ""
-            city = ""  # First file doesn't have city column
-            
-            # Skip if pincode is empty
-            if not pincode:
-                continue
-            
-            # Only add if at least one clinic exists
-            if clinic_1 or clinic_2:
-                result.append({
-                    "pincode": pincode,
-                    "home_scan": home_scan,
-                    "clinic_1": clinic_1 if clinic_1 else "",
-                    "clinic_2": clinic_2 if clinic_2 else "",
-                    "city": city
-                })
-        
-        # Process second file
-        for index, row in df2.iterrows():
+        # Process file
+        for index, row in df.iterrows():
             pincode = str(row['pincode']).strip() if pd.notna(row['pincode']) else ""
             home_scan = str(row['home_scan_available']).strip() if pd.notna(row['home_scan_available']) else ""
             clinic_1 = str(row['nearby clinic_1_display_name']).strip() if pd.notna(row['nearby clinic_1_display_name']) else ""
