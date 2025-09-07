@@ -36,6 +36,14 @@ const callDetailsColumns = [
     ),
   },
   {
+    accessorKey: "quality_score",
+    header: "Quality Score",
+    cell: ({ row }: { row: any }) => {
+      const score = row.getValue("quality_score");
+      return score ? `${score}/10` : "N/A";
+    },
+  },
+  {
     accessorKey: "created_at",
     header: "Created At",
     cell: ({ row }: { row: any }) => {

@@ -35,7 +35,21 @@ export function RowDetail({ data }: RowDetailProps) {
             <h4 className="font-semibold text-gray-700 text-base">Quality Score</h4>
             <div className="text-sm bg-white p-4 rounded border">
               {data.quality_score !== null && data.quality_score !== undefined ? (
-                <span className="font-medium text-lg">{data.quality_score.toFixed(2)}</span>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="font-medium text-lg">{data.quality_score.toFixed(2)}</span>
+                    <span className="text-gray-500 text-sm">/10</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                      style={{ width: `${(data.quality_score / 10) * 100}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-xs text-gray-600">
+                    Quality assessment based on call analysis
+                  </p>
+                </div>
               ) : (
                 <span className="text-gray-500 italic">No quality score available</span>
               )}
