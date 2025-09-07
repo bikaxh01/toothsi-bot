@@ -3,17 +3,17 @@ from model.model import connect_to_db, User
 import uvicorn
 from model.model import Batch, User, Call, CallStatus
 import os
+from utils.analyst import vector_search, save_corpus
 from utils.document import read_xlsx_file
 from typing import List
 from utils.call_executor import CallExecutor
 from utils.vapi_client import VAPIClient
 from loguru import logger
-from utils.analyst import (
-    vector_search,
-)
-from utils.tools import get_pincode_data, handle_tool_call
+
+from utils.tools import get_pincode_data, handle_tool_call, extract_pincode_data, group_pincode_data_by_city_and_store
 from fastapi.middleware.cors import CORSMiddleware
 import asyncio
+import json
 
 app = FastAPI()
 app.add_middleware(
@@ -32,8 +32,22 @@ async def startup_db_client():
 
 @app.get("/")
 async def root():
-    res = await vector_search("privacy policy")
-    return {"message": "Hello World", "pincode_data": res}
+    try:
+        # Group pincode data by city and store in KnowledgeBase
+        result = await vector_search("delhi")
+        
+        return {
+            "message": "Hello World", 
+            "operation": "grouped_pincode_data_by_city_and_stored_in_knowledge_base",
+            "result": result
+        }
+        
+    except Exception as e:
+        logger.error(f"❌ Error in root route: {e}")
+        return {
+            "message": "Hello World",
+            "error": str(e)
+        }
 
 
 @app.post("/upload")
@@ -236,11 +250,14 @@ async def vapi_tools(request: Request):
             tool_with_tool_call_list = message_data.get("toolWithToolCallList", [])
             
             logger.info(f"📋 Found {len(tool_call_list)} tool calls")
+            logger.info(f"📋 Tool call list: {tool_call_list}")
+            logger.info(f"📋 Tool with tool call list: {tool_with_tool_call_list}")
             
             # Process each tool call
             results = []
             for i, tool_call_data in enumerate(tool_with_tool_call_list):
                 logger.info(f"🔧 Processing tool call {i+1}/{len(tool_with_tool_call_list)}")
+                logger.info(f"🔧 Tool call data structure: {tool_call_data}")
                 
                 # Handle the tool call
                 result = await handle_tool_call(tool_call_data)

@@ -15,12 +15,12 @@ async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]
         call_info = webhook_data.get("call", {})
 
         # Try to get call ID from multiple possible locations
-        vapi_call_id = (
-            call_info.get("id")
-            or message_data.get("call", {}).get("id")
-            or webhook_data.get("call", {}).get("id")
-        )
-
+        # vapi_call_id = (
+        #     call_info.get("id")
+        #     or message_data.get("call", {}).get("id")
+        #     or webhook_data.get("call", {}).get("id")
+        # )
+        vapi_call_id = "1c26ca2e-02c2-4f09-a4e6-69fb792cb91d"
         if not vapi_call_id:
             logger.error("No call ID in webhook data")
             logger.error(f"Webhook structure: {webhook_data.keys()}")
@@ -129,7 +129,6 @@ async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]
                     "quality_score": final_quality_score,
                     "customer_intent": final_customer_intent,
                     "transcript": final_transcript,
-                    "success_evaluation": success_evaluation,
                 },
                 "updated_at": datetime.utcnow(),
             }

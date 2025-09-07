@@ -34,6 +34,10 @@ class AnalystResult(BaseModel):
 def analyze_transcript(transcript: str) -> AnalystResult:
     """Analyze transcript"""
     try:
+        # Log input transcript
+        logger.info(f"📝 Analyzing transcript (length: {len(transcript)} characters)")
+        logger.info(f"📄 Input transcript: {transcript}")
+        
         response = completion(
             api_key=os.getenv("OPENAI_API_KEY"),
             model="openai/gpt-5-nano",
@@ -47,20 +51,32 @@ def analyze_transcript(transcript: str) -> AnalystResult:
         # Parse the response content as AnalystResult
         content = response.choices[0].message.content
         if isinstance(content, AnalystResult):
-            return content
+            result = content
         else:
             # If it's a string, try to parse it as JSON
             import json
             data = json.loads(content)
-            return AnalystResult(**data)
+            result = AnalystResult(**data)
+        
+        # Log the generated response
+        logger.info(f"✅ Transcript analysis completed successfully")
+        logger.info(f"📊 Generated response:")
+        logger.info(f"   - Summary: {result.summary}")
+        logger.info(f"   - Quality Score: {result.quality_score}")
+        logger.info(f"   - Customer Intent: {result.customer_intent}")
+        
+        return result
+        
     except Exception as e:
-        logger.error(f"Error analyzing transcript: {e}")
+        logger.error(f"❌ Error analyzing transcript: {e}")
         # Return a default result if analysis fails
-        return AnalystResult(
+        default_result = AnalystResult(
             summary="Analysis failed",
             quality_score=0.0,
             customer_intent="unknown"
         )
+        logger.error(f"🔄 Returning default result due to error: {default_result}")
+        return default_result
 
 
 def generate_embedding(text: str) -> List[float]:

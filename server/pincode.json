@@ -1,0 +1,6057 @@
+[
+  {
+    "pincode": "421102",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": ""
+  },
+  {
+    "pincode": "400091",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "400614",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421103",
+    "home_scan": "No",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400024",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": ""
+  },
+  {
+    "pincode": "400064",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400003",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400052",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421308",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "421005",
+    "home_scan": "No",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400001",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400081",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421502",
+    "home_scan": "No",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400034",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400013",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400104",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400022",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400096",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401209",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400084",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421302",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400058",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400070",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400018",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400097",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "400017",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400063",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401301",
+    "home_scan": "No",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "400602",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400061",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400049",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401107",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400095",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400103",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "410206",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401106",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "400008",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400033",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400042",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "410210",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400615",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400065",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400025",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400079",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401201",
+    "home_scan": "No",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "400608",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400010",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400043",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": ""
+  },
+  {
+    "pincode": "401304",
+    "home_scan": "No",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "400012",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421503",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400075",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421306",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "401203",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "400067",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421202",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": ""
+  },
+  {
+    "pincode": "410218",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400601",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400071",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400019",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400059",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400099",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400057",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400072",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400709",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400021",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400015",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400706",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400610",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400094",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": ""
+  },
+  {
+    "pincode": "400088",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400014",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421505",
+    "home_scan": "No",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400082",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400606",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400051",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421201",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": ""
+  },
+  {
+    "pincode": "400703",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421501",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400066",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421203",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": ""
+  },
+  {
+    "pincode": "400068",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400028",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400016",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400101",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "400005",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401303",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "401208",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "421002",
+    "home_scan": "No",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": ""
+  },
+  {
+    "pincode": "400006",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400086",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400102",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "421204",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": ""
+  },
+  {
+    "pincode": "400009",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400055",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400020",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400060",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400054",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400708",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421301",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400076",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400002",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401305",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400011",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400078",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400050",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400083",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400037",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400077",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400607",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400026",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401202",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400701",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": ""
+  },
+  {
+    "pincode": "400092",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400605",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400029",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400069",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400604",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400080",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421004",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400074",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400093",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401101",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": ""
+  },
+  {
+    "pincode": "400027",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400053",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Borivali West",
+    "city": ""
+  },
+  {
+    "pincode": "400056",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400612",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": ""
+  },
+  {
+    "pincode": "421605",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": ""
+  },
+  {
+    "pincode": "400031",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "421506",
+    "home_scan": "No",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400098",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400030",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400004",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "401105",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "410208",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": ""
+  },
+  {
+    "pincode": "400089",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400007",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "400603",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Ghatkopar East",
+    "city": ""
+  },
+  {
+    "pincode": "560057",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560114",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560002",
+    "home_scan": "Yes",
+    "clinic_1": "Koramangala",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560093",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "Brookefield",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560025",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Brookefield",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560070",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560007",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560096",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560033",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560046",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Brookefield",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560043",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "Brookefield",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560055",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560080",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Brookefield",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560027",
+    "home_scan": "Yes",
+    "clinic_1": "Koramangala",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560063",
+    "home_scan": "Yes",
+    "clinic_1": "Brookefield",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560049",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560094",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560058",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560071",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560086",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560077",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "New Bel Road",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560008",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560050",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560041",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560102",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560005",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "New Bel Road",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560085",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560035",
+    "home_scan": "Yes",
+    "clinic_1": "Brookefield",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560042",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560017",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560021",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560065",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560003",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560104",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "New Bel Road",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560092",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560037",
+    "home_scan": "Yes",
+    "clinic_1": "Brookefield",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560040",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "New Bel Road",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560048",
+    "home_scan": "Yes",
+    "clinic_1": "Brookefield",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560032",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560098",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560076",
+    "home_scan": "Yes",
+    "clinic_1": "Koramangala",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560056",
+    "home_scan": "No",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "New Bel Road",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560068",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560030",
+    "home_scan": "Yes",
+    "clinic_1": "Koramangala",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560103",
+    "home_scan": "Yes",
+    "clinic_1": "Brookefield",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560062",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560095",
+    "home_scan": "Yes",
+    "clinic_1": "Koramangala",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560023",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560054",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560090",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560018",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560020",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560013",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560100",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560061",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560105",
+    "home_scan": "No",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560113",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "Brookefield",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560053",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "New Bel Road",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560006",
+    "home_scan": "Yes",
+    "clinic_1": "Brookefield",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560097",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560047",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560029",
+    "home_scan": "Yes",
+    "clinic_1": "Koramangala",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560084",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "New Bel Road",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560010",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560081",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560064",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "562130",
+    "home_scan": "No",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560075",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560034",
+    "home_scan": "Yes",
+    "clinic_1": "Koramangala",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560016",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "Brookefield",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560111",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560087",
+    "home_scan": "Yes",
+    "clinic_1": "Brookefield",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560078",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560022",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560066",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560011",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560072",
+    "home_scan": "No",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "New Bel Road",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560091",
+    "home_scan": "No",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560036",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "Brookefield",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560024",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "562125",
+    "home_scan": "No",
+    "clinic_1": "Brookefield",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560060",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560079",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560012",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560038",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560051",
+    "home_scan": "Yes",
+    "clinic_1": "HSR Layout",
+    "clinic_2": "Brookefield",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560026",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560073",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560015",
+    "home_scan": "Yes",
+    "clinic_1": "New Bel Road",
+    "clinic_2": "HRBR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560004",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560045",
+    "home_scan": "Yes",
+    "clinic_1": "HRBR Layout",
+    "clinic_2": "New Bel Road",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560059",
+    "home_scan": "No",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560067",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "HSR Layout",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560001",
+    "home_scan": "Yes",
+    "clinic_1": "Koramangala",
+    "clinic_2": "Jayanagar",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "560009",
+    "home_scan": "Yes",
+    "clinic_1": "Jayanagar",
+    "clinic_2": "Koramangala",
+    "city": "Bangalore"
+  },
+  {
+    "pincode": "160019",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160055",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "134113",
+    "home_scan": "Yes",
+    "clinic_1": "Grover dental clinic and implant centre",
+    "clinic_2": "Chandigarh",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160002",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160015",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160030",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160102",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160101",
+    "home_scan": "Yes",
+    "clinic_1": "Grover dental clinic and implant centre",
+    "clinic_2": "Chandigarh",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160059",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "140301",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "134108",
+    "home_scan": "Yes",
+    "clinic_1": "Grover dental clinic and implant centre",
+    "clinic_2": "Chandigarh",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "134109",
+    "home_scan": "No",
+    "clinic_1": "Grover dental clinic and implant centre",
+    "clinic_2": "Chandigarh",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160023",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160103",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "140604",
+    "home_scan": "Yes",
+    "clinic_1": "Grover dental clinic and implant centre",
+    "clinic_2": "Chandigarh",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "140307",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160020",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160006",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160011",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160025",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160003",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160022",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160009",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160071",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "140308",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160043",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "140603",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160018",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160036",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "134112",
+    "home_scan": "Yes",
+    "clinic_1": "Grover dental clinic and implant centre",
+    "clinic_2": "Chandigarh",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160047",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "134114",
+    "home_scan": "Yes",
+    "clinic_1": "Grover dental clinic and implant centre",
+    "clinic_2": "Chandigarh",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160014",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160004",
+    "home_scan": "Yes",
+    "clinic_1": "Grover dental clinic and implant centre",
+    "clinic_2": "Chandigarh",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "140901",
+    "home_scan": "No",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160016",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160001",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160104",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "134117",
+    "home_scan": "Yes",
+    "clinic_1": "Grover dental clinic and implant centre",
+    "clinic_2": "Chandigarh",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160017",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160012",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160005",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "160062",
+    "home_scan": "Yes",
+    "clinic_1": "Makeo centre Chandigarh",
+    "clinic_2": "Grover dental clinic and implant centre",
+    "city": "Chandigarh"
+  },
+  {
+    "pincode": "600129",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602021",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600018",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600125",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600126",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600011",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600120",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600050",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600076",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600115",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600070",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600049",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602024",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600123",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600012",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600046",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600045",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600004",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600007",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600008",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "601205",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600059",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600073",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600083",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600096",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600066",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600103",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600106",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600099",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600035",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600036",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600062",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600030",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600097",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600094",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600092",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600110",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600021",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600075",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600116",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600093",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600032",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600060",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600034",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600037",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600061",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600107",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600064",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600039",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602003",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600026",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600058",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600047",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600016",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600019",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600081",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600025",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600041",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600015",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600124",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600044",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600010",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602025",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600014",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600017",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600056",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600053",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602106",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602105",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "601206",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600022",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600024",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600119",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600090",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602001",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600069",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "603104",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602002",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "601301",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600100",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600063",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600031",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600104",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600102",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600068",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600087",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600084",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600082",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600077",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600071",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600074",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600020",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600009",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600005",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600003",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600006",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602108",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600122",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600013",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600128",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602023",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600048",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600040",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600043",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600002",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600055",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600001",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600130",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "601203",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600113",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600089",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600028",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600086",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600085",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600038",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600095",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600033",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600067",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600101",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600091",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600118",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600078",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600023",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600072",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600088",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600117",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "601202",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "601204",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600051",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600057",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600054",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600052",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600131",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600127",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "600042",
+    "home_scan": "Yes",
+    "clinic_1": "Adyar",
+    "clinic_2": "Nungambakkam",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "602026",
+    "home_scan": "Yes",
+    "clinic_1": "Nungambakkam",
+    "clinic_2": "Adyar",
+    "city": "Chennai"
+  },
+  {
+    "pincode": "110027",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110021",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110035",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110069",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110017",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110033",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110071",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110065",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Noida",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110063",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110099",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110095",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110087",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110080",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110086",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110092",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110052",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110054",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110038",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110076",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110058",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110020",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110030",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110078",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110048",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110056",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110066",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110028",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110001",
+    "home_scan": "No",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110064",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110008",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110034",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110004",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110032",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110016",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110012",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110060",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110074",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110088",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110083",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "121003",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110061",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110018",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110082",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110097",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110091",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110029",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110057",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110002",
+    "home_scan": "No",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110025",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Noida",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110013",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110007",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110003",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110059",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110041",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110055",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110094",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110006",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110036",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110014",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110096",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110090",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110085",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110019",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110075",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Sec 14, Gurugram",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110043",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110051",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110067",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110015",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110031",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Noida",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110037",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110011",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110005",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110077",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110047",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110009",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110053",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "121001",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110093",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110062",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110040",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110070",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110046",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Pitampura",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110068",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110010",
+    "home_scan": "Yes",
+    "clinic_1": "Paschim Vihar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110026",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110022",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110024",
+    "home_scan": "Yes",
+    "clinic_1": "Lajpat Nagar",
+    "clinic_2": "Green Park",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110044",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110042",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110084",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110089",
+    "home_scan": "Yes",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "110049",
+    "home_scan": "Yes",
+    "clinic_1": "Green Park",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Delhi"
+  },
+  {
+    "pincode": "122003",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122009",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Paschim Vihar",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122505",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122015",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122102",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122007",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122004",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122012",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122001",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122002",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122051",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122010",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122413",
+    "home_scan": "No",
+    "clinic_1": "Pitampura",
+    "clinic_2": "Paschim Vihar",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122017",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122018",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122008",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122006",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122005",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122016",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122101",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "122011",
+    "home_scan": "Yes",
+    "clinic_1": "Sec 14, Gurugram",
+    "clinic_2": "Green Park",
+    "city": "Gurgaon"
+  },
+  {
+    "pincode": "500097",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500086",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500042",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500017",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500029",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500047",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500079",
+    "home_scan": "No",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500065",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500003",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500084",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500024",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500060",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500083",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500092",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500038",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500030",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500095",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500048",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500062",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500103",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500081",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500023",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500010",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500039",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500064",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500026",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500040",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500073",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500015",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500090",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500018",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500032",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "501218",
+    "home_scan": "No",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500001",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500057",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500114",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500087",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500034",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500070",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500022",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500044",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500011",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500049",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "502325",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500036",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500072",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500020",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500046",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500069",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500052",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500061",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500111",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500100",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500016",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500107",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500058",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500085",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500027",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500102",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500074",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500012",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500059",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500004",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500045",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500067",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500093",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500031",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500013",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500002",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500096",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500075",
+    "home_scan": "No",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500007",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500033",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500055",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500050",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500005",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500068",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500035",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500053",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500006",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500056",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500104",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "502324",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500037",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500051",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500009",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500054",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500098",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500089",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500076",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500028",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500082",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "502032",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500080",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500008",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500019",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500077",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500066",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500094",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500088",
+    "home_scan": "No",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500041",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500063",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "500014",
+    "home_scan": "Yes",
+    "clinic_1": "Madhapur",
+    "clinic_2": "",
+    "city": "Hyderabad"
+  },
+  {
+    "pincode": "302003",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302013",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302019",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302002",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302004",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302034",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302015",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302018",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302017",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302005",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302012",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302021",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302020",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302026",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302039",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302006",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302033",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302022",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302001",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302031",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302016",
+    "home_scan": "Yes",
+    "clinic_1": "Jaipur",
+    "clinic_2": "Anand dental clinic",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "302029",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Jaipur"
+  },
+  {
+    "pincode": "400021",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400042",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400072",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400012",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400071",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400065",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421503",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400014",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401304",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400099",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400088",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "410210",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400059",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421004",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "410208",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400030",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400011",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400053",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400050",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400027",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400077",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400056",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400074",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400093",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400078",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401202",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400069",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400607",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400604",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401201",
+    "home_scan": "No",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400615",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400601",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400610",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400608",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421202",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421505",
+    "home_scan": "No",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400706",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421605",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400701",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401101",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421506",
+    "home_scan": "No",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401105",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400709",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421306",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401203",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400079",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400019",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400075",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400057",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400015",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400067",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400025",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "410218",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400010",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400094",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400043",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400612",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400603",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400605",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400029",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400089",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400098",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400037",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400092",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401305",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400076",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400004",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400080",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400026",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400007",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400083",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400031",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400002",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400003",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400022",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400063",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400084",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400095",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400033",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401301",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400096",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400024",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400081",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400017",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421102",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400018",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400103",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421302",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400602",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421308",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401107",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401106",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421005",
+    "home_scan": "No",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421502",
+    "home_scan": "No",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421103",
+    "home_scan": "No",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400614",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400008",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400049",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400058",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "410206",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400104",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400034",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400091",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400064",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400013",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400070",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400097",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400052",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400001",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401209",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400061",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400060",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401208",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400006",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400082",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400066",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400005",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400055",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400028",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400009",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421301",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400708",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421204",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421002",
+    "home_scan": "No",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421201",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400705",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421203",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Kharghar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400703",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400606",
+    "home_scan": "Yes",
+    "clinic_1": "Thane West",
+    "clinic_2": "Borivali West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400068",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400101",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400102",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400054",
+    "home_scan": "Yes",
+    "clinic_1": "Andheri West",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400016",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "421501",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400051",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Dadar",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "401303",
+    "home_scan": "Yes",
+    "clinic_1": "Borivali West",
+    "clinic_2": "Thane West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400020",
+    "home_scan": "Yes",
+    "clinic_1": "Dadar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "400086",
+    "home_scan": "Yes",
+    "clinic_1": "Ghatkopar East",
+    "clinic_2": "Andheri West",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "410209",
+    "home_scan": "Yes",
+    "clinic_1": "Kharghar",
+    "clinic_2": "Ghatkopar East",
+    "city": "Mumbai"
+  },
+  {
+    "pincode": "201301",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Green Park",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201307",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201317",
+    "home_scan": "No",
+    "clinic_1": "Beauty Tricks Medical Center",
+    "clinic_2": "Dummy",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201310",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201305",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201304",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201316",
+    "home_scan": "No",
+    "clinic_1": "Beauty Tricks Medical Center",
+    "clinic_2": "Dummy",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201306",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201303",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201309",
+    "home_scan": "Yes",
+    "clinic_1": "Anand dental clinic",
+    "clinic_2": "Jaipur",
+    "city": "Noida"
+  },
+  {
+    "pincode": "201318",
+    "home_scan": "Yes",
+    "clinic_1": "Noida",
+    "clinic_2": "Lajpat Nagar",
+    "city": "Noida"
+  },
+  {
+    "pincode": "412206",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411032",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411018",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411061",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411017",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411003",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411030",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411001",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411015",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411039",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "412308",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411042",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411013",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "412307",
+    "home_scan": "No",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411062",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411005",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411068",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411008",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411020",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411034",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411047",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "412207",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "410507",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411051",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "412105",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411041",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411009",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411006",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411057",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411002",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411014",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411019",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411021",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411069",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411023",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411043",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411026",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411046",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411011",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411022",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411007",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411067",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411033",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411028",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411045",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "410501",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411038",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411012",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "410503",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411037",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "410506",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411052",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411044",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411040",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411036",
+    "home_scan": "Yes",
+    "clinic_1": "Viman Nagar",
+    "clinic_2": "Baner",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411027",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411016",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411048",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411060",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411031",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Kharghar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411035",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "412101",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411004",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  },
+  {
+    "pincode": "411058",
+    "home_scan": "Yes",
+    "clinic_1": "Baner",
+    "clinic_2": "Viman Nagar",
+    "city": "Pune"
+  }
+]

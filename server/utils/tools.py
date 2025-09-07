@@ -1,10 +1,11 @@
 
 
 import pandas as pd
+import json
 from typing import Dict, List, Optional, Any
 from loguru import logger
-from model.model import PincodeData
-from utils.analyst import vector_search
+from model.model import PincodeData, KnowledgeBase
+from utils.analyst import vector_search, generate_embedding
 
 async def extract_pincode_data() -> List[Dict]:
     """
@@ -105,8 +106,6 @@ async def save_pincode_data() -> List[PincodeData]:
     return pincode_data
 
 
-
-
 async def get_pincode_data(pincode: Optional[str] = None, city: Optional[str] = None) -> List[PincodeData]:
     """
     Get pincode data from the database based on pincode and/or city filters
@@ -133,6 +132,86 @@ async def get_pincode_data(pincode: Optional[str] = None, city: Optional[str] = 
     return str(json_data)
 
 
+async def group_pincode_data_by_city_and_store() -> Dict[str, Any]:
+    """
+    Group pincode data by city and store in KnowledgeBase with embeddings
+    
+    Returns:
+        Dict containing summary of the operation
+    """
+    try:
+        logger.info("🏙️ Starting to group pincode data by city and store in KnowledgeBase")
+        
+        # Extract pincode data
+        pincode_data = await extract_pincode_data()
+        logger.info(f"📊 Extracted {len(pincode_data)} pincode records")
+        
+        # Group by city
+        city_groups = {}
+        for record in pincode_data:
+            city = record.get("city", "").strip()
+            if not city:  # Skip records without city
+                continue
+                
+            if city not in city_groups:
+                city_groups[city] = []
+            city_groups[city].append(record)
+        
+        logger.info(f"🏙️ Grouped data into {len(city_groups)} cities")
+        
+        # Create KnowledgeBase entries for each city
+        knowledge_base_entries = []
+        
+        for city, records in city_groups.items():
+            # Create content string for this city
+            content = f"Pincode and clinic information for {city}:\n\n"
+            
+            for i, record in enumerate(records, 1):
+                content += f"{i}. Pincode: {record['pincode']}\n"
+                content += f"   Home Scan Available: {record['home_scan']}\n"
+                
+                if record.get('clinic_1'):
+                    content += f"   Clinic 1: {record['clinic_1']}\n"
+                if record.get('clinic_2'):
+                    content += f"   Clinic 2: {record['clinic_2']}\n"
+                
+                content += "\n"
+            
+            # Generate embedding for the content
+            logger.info(f"🔍 Generating embedding for {city} ({len(records)} records)")
+            embedding = generate_embedding(content)
+            
+            # Create KnowledgeBase entry
+            kb_entry = KnowledgeBase(
+                content=content,
+                embedding=embedding
+            )
+            knowledge_base_entries.append(kb_entry)
+        
+        # Clear existing KnowledgeBase entries (optional - remove if you want to keep existing data)
+     
+        # Insert new entries
+        logger.info(f"💾 Inserting {len(knowledge_base_entries)} KnowledgeBase entries")
+        await KnowledgeBase.insert_many(knowledge_base_entries)
+        
+        # Prepare summary
+        summary = {
+            "total_pincode_records": len(pincode_data),
+            "cities_processed": len(city_groups),
+            "knowledge_base_entries_created": len(knowledge_base_entries),
+            "cities": list(city_groups.keys())
+        }
+        
+        logger.info(f"✅ Successfully stored pincode data in KnowledgeBase")
+        logger.info(f"📊 Summary: {summary}")
+        
+        return summary
+        
+    except Exception as e:
+        logger.error(f"❌ Error grouping and storing pincode data: {e}")
+        return {"error": str(e)}
+
+
 async def handle_tool_call(tool_call_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     Handle VAPI tool call requests
@@ -144,20 +223,28 @@ async def handle_tool_call(tool_call_data: Dict[str, Any]) -> Dict[str, Any]:
         Dict containing the tool call result in VAPI format
     """
     try:
+        # Log the full tool call data structure
+        logger.info(f"🔍 Full tool call data: {tool_call_data}")
+        
         # Extract tool call information
         tool_call = tool_call_data.get("toolCall", {})
+        logger.info(f"🔍 Extracted tool_call: {tool_call}")
+        
         tool_name = tool_call.get("function", {}).get("name", "")
-        tool_parameters = tool_call.get("function", {}).get("parameters", {})
+        # VAPI uses 'arguments' instead of 'parameters' in the toolCall structure
+        tool_parameters = tool_call.get("function", {}).get("arguments", {})
         tool_call_id = tool_call.get("id", "")
         
         logger.info(f"🔧 Processing tool call: {tool_name} with ID: {tool_call_id}")
         logger.info(f"📋 Tool parameters: {tool_parameters}")
+        logger.info(f"📋 Tool parameters type: {type(tool_parameters)}")
+        logger.info(f"📋 Tool parameters keys: {list(tool_parameters.keys()) if isinstance(tool_parameters, dict) else 'Not a dict'}")
         
         # Route to appropriate tool function
         if tool_name == "vector_search":
             result_string = await handle_vector_search_tool(tool_parameters)
-        elif tool_name == "get_pincode_data":
-            result_string = await handle_get_pincode_data_tool(tool_parameters)
+        # elif tool_name == "get_pincode_data":
+        #     result_string = await handle_get_pincode_data_tool(tool_parameters)
         else:
             logger.warning(f"⚠️ Unknown tool: {tool_name}")
             result_string = f"Error: Unknown tool '{tool_name}'. Available tools: vector_search, get_pincode_data"
@@ -186,7 +273,13 @@ async def handle_vector_search_tool(parameters: Dict[str, Any]) -> str:
         String containing search results
     """
     try:
+        logger.info(f"🔍 Vector search tool received parameters: {parameters}")
+        logger.info(f"🔍 Parameters type: {type(parameters)}")
+        logger.info(f"🔍 Parameters keys: {list(parameters.keys()) if isinstance(parameters, dict) else 'Not a dict'}")
+        
         query = parameters.get("query", "")
+        logger.info(f"🔍 Extracted query: '{query}'")
+        
         if not query:
             return "Error: Query parameter is required for vector search"
         
