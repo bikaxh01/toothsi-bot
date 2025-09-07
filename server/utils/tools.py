@@ -241,7 +241,7 @@ async def handle_tool_call(tool_call_data: Dict[str, Any]) -> Dict[str, Any]:
         logger.info(f"📋 Tool parameters keys: {list(tool_parameters.keys()) if isinstance(tool_parameters, dict) else 'Not a dict'}")
         
         # Route to appropriate tool function
-        if tool_name == "vector_search":
+        if tool_name == "knowbase":
             result_string = await handle_vector_search_tool(tool_parameters)
         # elif tool_name == "get_pincode_data":
         #     result_string = await handle_get_pincode_data_tool(tool_parameters)
