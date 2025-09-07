@@ -264,7 +264,7 @@ async def vapi_tools(request: Request):
                 results.append(result)
                 
                 logger.info(f"✅ Tool call {i+1} completed with result length: {len(result.get('result', ''))}")
-            
+            logger.info(f"🔧 🚀🚀🚀🚀🚀 Results: {results}")
             return {
                 "results": results
             }
