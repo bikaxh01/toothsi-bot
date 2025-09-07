@@ -136,7 +136,7 @@ async def handle_call_events(request: Request, background_tasks: BackgroundTasks
         client_ip = request.client.host if request.client else "unknown"
 
         logger.info(f"🌐 WEBHOOK RECEIVED from {client_ip}")
-        logger.info(f"📋 Headers: {headers}")
+      
 
         webhook_data = await request.json()
         
@@ -149,7 +149,7 @@ async def handle_call_events(request: Request, background_tasks: BackgroundTasks
             event_type = webhook_data.get("type", "unknown")
 
         logger.info(f"📞 VAPI webhook type: {event_type}")
-        logger.info(f"📄 Full webhook data: {webhook_data}")
+     
 
         # Return immediately and process in background for long-running operations
         if event_type in ["call.completed", "call.ended", "end-of-call-report"]:
