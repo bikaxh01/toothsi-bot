@@ -179,6 +179,39 @@ async def handle_call_events(request: Request, background_tasks: BackgroundTasks
         return {"status": "error", "message": str(e)}
 
 
+@app.get("/batches")
+async def get_all_batches():
+    """
+    Get all batches sorted by creation date (latest first)
+    """
+    try:
+        # Find all batches sorted by created_at in descending order (latest first)
+        batches = await Batch.find_all().sort("-created_at").to_list()
+        
+        # Convert batches to dict format for JSON response
+        batches_data = []
+        for batch in batches:
+            batch_dict = {
+                "id": str(batch.id),
+                "file_name": batch.file_name,
+                "url": batch.url,
+                "created_at": batch.created_at.isoformat()
+            }
+            batches_data.append(batch_dict)
+        
+        return {
+            "total_batches": len(batches_data),
+            "batches": batches_data
+        }
+        
+    except Exception as e:
+        logger.error(f"Error fetching all batches: {e}")
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Error fetching batches: {str(e)}"
+        )
+
+
 @app.get("/calls/batch/{batch_id}")
 async def get_calls_by_batch(batch_id: str):
     """
