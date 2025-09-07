@@ -129,7 +129,7 @@ async def vector_search(query: str) -> List[KnowledgeBase]:
                 "queryVector": query_embedding,
                 "path": "embedding",
                 "exact": True,
-                "limit": 2,
+                "limit": 5,
             }
         },
         {"$project": {"_id": 0, "content": 1}},
