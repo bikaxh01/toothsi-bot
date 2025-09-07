@@ -1,10 +1,13 @@
 "use client";
-import Image from "next/image";
 import MyDropzone from "../components/dropBox";
 import { useState, useCallback, useEffect, useRef } from "react";
 import { DataTable } from "@/components/dataTable";
+import { AuthDialog } from "@/components/authDialog";
+import { useAuth } from "@/hooks/useAuth";
 import axios from "axios";
-const columns = [
+
+// Columns for call details table
+const callDetailsColumns = [
   {
     accessorKey: "name",
     header: "Name",
@@ -42,15 +45,56 @@ const columns = [
   },
 ];
 
+// Columns for batches table
+const batchesColumns = [
+  {
+    accessorKey: "file_name",
+    header: "File Name",
+  },
+  {
+    accessorKey: "created_at",
+    header: "Created At",
+    cell: ({ row }: { row: any }) => {
+      const date = new Date(row.getValue("created_at"));
+      return date.toLocaleDateString() + " " + date.toLocaleTimeString();
+    },
+  },
+  {
+    accessorKey: "id",
+    header: "Batch ID",
+    cell: ({ row }: { row: any }) => (
+      <span className="font-mono text-sm text-gray-600">
+        {row.getValue("id").substring(0, 8)}...
+      </span>
+    ),
+  },
+];
+
 export default function Home() {
+  const { isAuthenticated, isLoading, authenticate, logout } = useAuth();
+  const [activeTab, setActiveTab] = useState<"upload" | "files" | "details">("upload");
   const [uploadStatus, setUploadStatus] = useState<
     "idle" | "uploading" | "success" | "error"
   >("idle");
   const [uploadMessage, setUploadMessage] = useState("");
-  const [data, setData] = useState([]);
-  const [batchId, setBatchId] = useState<string | null>(null);
+  const [callDetailsData, setCallDetailsData] = useState([]);
+  const [batchesData, setBatchesData] = useState([]);
+  const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
   const [isPolling, setIsPolling] = useState(false);
   const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Function to fetch batches from /batches endpoint
+  const fetchBatches = useCallback(async () => {
+    try {
+      const serverBaseUrl =
+        process.env.NEXT_PUBLIC_SERVER_BASE_URL || "http://localhost:3001";
+      const response = await axios.get(`${serverBaseUrl}/batches`);
+      setBatchesData(response.data.batches || []);
+      console.log("Fetched batches:", response.data.batches);
+    } catch (error) {
+      console.error("Error fetching batches:", error);
+    }
+  }, []);
 
   // Function to fetch call details from the batch
   const fetchCallDetails = useCallback(async (batchId: string) => {
@@ -75,7 +119,7 @@ export default function Home() {
         customer_intent: call.call_result?.customer_intent || null
       }));
       
-      setData(transformedData);
+      setCallDetailsData(transformedData);
       console.log("Updated call details:", transformedData);
     } catch (error) {
       console.error("Error fetching call details:", error);
@@ -116,6 +160,11 @@ export default function Home() {
     };
   }, []);
 
+  // Fetch batches when component mounts
+  useEffect(() => {
+    fetchBatches();
+  }, [fetchBatches]);
+
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     if (acceptedFiles.length === 0) return;
 
@@ -142,8 +191,11 @@ export default function Home() {
       // Extract batch_id from the response
       const batchId = response.data.batch_id || response.data.calls?.[0]?.batch_id;
       if (batchId) {
-        setBatchId(batchId);
-        // Start polling for call details
+        setSelectedBatchId(batchId);
+        // Refresh batches list
+        fetchBatches();
+        // Switch to details tab and start polling
+        setActiveTab("details");
         startPolling(batchId);
       } else {
         console.error("No batch_id found in upload response");
@@ -155,35 +207,172 @@ export default function Home() {
       // Stop any existing polling
       stopPolling();
     }
-  }, [startPolling, stopPolling]);
+  }, [startPolling, stopPolling, fetchBatches]);
+
+  // Handle batch selection from files tab
+  const handleBatchSelect = useCallback((batchId: string) => {
+    setSelectedBatchId(batchId);
+    setActiveTab("details");
+    startPolling(batchId);
+  }, [startPolling]);
+
+  // Custom batches table with clickable rows
+  const BatchesTable = ({ data }: { data: any[] }) => {
+    return (
+      <div className="overflow-hidden rounded-md border">
+        <table className="w-full">
+          <thead className="bg-gray-50">
+            <tr>
+              {batchesColumns.map((column) => (
+                <th key={column.accessorKey} className="px-4 py-3 text-left text-sm font-medium text-gray-900">
+                  {column.header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.length > 0 ? (
+              data.map((batch) => (
+                <tr
+                  key={batch.id}
+                  className="cursor-pointer hover:bg-gray-50 transition-colors border-b"
+                  onClick={() => handleBatchSelect(batch.id)}
+                >
+                  {batchesColumns.map((column) => (
+                    <td key={column.accessorKey} className="px-4 py-3 text-sm text-gray-900">
+                      {column.cell ? column.cell({ row: { getValue: (key: string) => batch[key] } }) : batch[column.accessorKey]}
+                    </td>
+                  ))}
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={batchesColumns.length} className="h-24 text-center text-gray-500">
+                  No batches found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+
+  // Show loading state while checking authentication
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show authentication dialog if not authenticated
+  if (!isAuthenticated) {
+    return <AuthDialog isOpen={true} onAuthenticated={authenticate} />;
+  }
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center min-h-screen p-4">
-        {uploadStatus !== "success" && (
-          <div className="mb-8">
-            <MyDropzone
-              onDrop={onDrop}
-              uploadStatus={uploadStatus}
-              uploadMessage={uploadMessage}
-            />
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto p-6">
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Toothsi Dashboard</h1>
+              <p className="text-gray-600 mt-2">Upload files, view batches, and monitor call details</p>
+            </div>
+            <button
+              onClick={logout}
+              className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-sm"
+            >
+              Logout
+            </button>
           </div>
-        )}
-        {data.length > 0 && (
-          <div className="w-full max-w-6xl">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold">Uploaded Data</h2>
-              {isPolling && (
-                <div className="flex items-center gap-2 text-sm text-blue-600">
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-                  <span>Polling for updates...</span>
+        </div>
+
+        {/* Tabs */}
+        <div className="mb-6">
+          <div className="border-b border-gray-200">
+            <nav className="-mb-px flex space-x-8">
+              {[
+                { id: "upload", label: "Upload" },
+                { id: "files", label: "Files" },
+                { id: "details", label: "Details" },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as any)}
+                  className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                    activeTab === tab.id
+                      ? "border-blue-500 text-blue-600"
+                      : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </div>
+
+        {/* Tab Content */}
+        <div className="bg-white rounded-lg shadow-sm border">
+          {activeTab === "upload" && (
+            <div className="p-8">
+              <h2 className="text-xl font-semibold mb-6">Upload File</h2>
+              <div className="flex justify-center">
+                <MyDropzone
+                  onDrop={onDrop}
+                  uploadStatus={uploadStatus}
+                  uploadMessage={uploadMessage}
+                />
+              </div>
+            </div>
+          )}
+
+          {activeTab === "files" && (
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-semibold">All Files</h2>
+                <button
+                  onClick={fetchBatches}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                >
+                  Refresh
+                </button>
+              </div>
+              <BatchesTable data={batchesData} />
+            </div>
+          )}
+
+          {activeTab === "details" && (
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-semibold">
+                  Call Details {selectedBatchId && `(Batch: ${selectedBatchId.substring(0, 8)}...)`}
+                </h2>
+                {isPolling && (
+                  <div className="flex items-center gap-2 text-sm text-blue-600">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                    <span>Polling for updates...</span>
+                  </div>
+                )}
+              </div>
+              {selectedBatchId ? (
+                <DataTable columns={callDetailsColumns} data={callDetailsData} />
+              ) : (
+                <div className="text-center py-12 text-gray-500">
+                  <p>Select a batch from the Files tab to view call details</p>
                 </div>
               )}
             </div>
-            <DataTable columns={columns} data={data} />
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
