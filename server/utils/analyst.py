@@ -122,5 +122,5 @@ async def vector_search(query: str) -> List[KnowledgeBase]:
         {"$project": {"_id": 0, "content": 1}},
     ]
     response = await KnowledgeBase.aggregate(pipeline).to_list()
-   
+    logger.info(f"Vector search response 🔥🔥🔥🔥: {response}")
     return response

@@ -267,18 +267,14 @@ async def handle_vector_search_tool(parameters: Dict[str, Any]) -> str:
         if not search_results:
             return f"No results found for query: '{query}'"
         
-        # Format results as a readable string
-        result_text = f"Found {len(search_results)} result(s) for '{query}':\n\n"
-        
-        for i, result in enumerate(search_results, 1):
+        # Return only the content from search results
+        contents = []
+        for result in search_results:
             content = result.get("content", "")
-            score = result.get("score", 0.0)
-            # Truncate long content for readability
-            if len(content) > 200:
-                content = content[:200] + "..."
-            result_text += f"{i}. {content}\n(Relevance: {score:.2f})\n\n"
+            if content:
+                contents.append(content)
         
-        return result_text.strip()
+        return "\n\n".join(contents)
         
     except Exception as e:
         logger.error(f"❌ Error in vector search: {e}")
