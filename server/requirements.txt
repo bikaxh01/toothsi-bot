@@ -1,0 +1,14 @@
+beanie
+fastapi[standard]
+pymongo
+python-dotenv
+loguru
+uvicorn
+pandas
+openpyxl
+python-multipart
+httpx
+aiohttp
+litellm
+
+gradio

@@ -1,0 +1,110 @@
+from litellm import completion, embedding
+import os
+from pydantic import BaseModel
+from typing import Optional, List
+from loguru import logger
+from corpus import corpus
+from model.model import KnowledgeBase
+from pymongo.operations import SearchIndexModel
+
+TRANSCRIPT_ANALYSIS_PROMPT = """
+You are an AI assistant that analyzes phone call transcripts. Please analyze the following transcript and provide:
+
+1. A summary of the call (what happened, key points discussed)
+2. A quality score from 0.0 to 10.0 based on:
+   - Call clarity and understanding
+   - Customer engagement
+   - Resolution of issues
+   - Overall satisfaction indicators
+3. Customer intent (what the customer wanted to achieve)
+
+Respond in JSON format with these fields:
+- summary: string
+- quality_score: float (0.0 to 10.0)
+- customer_intent: string
+"""
+
+
+class AnalystResult(BaseModel):
+    summary: str
+    quality_score: float
+    customer_intent: str
+
+
+def analyze_transcript(transcript: str) -> AnalystResult:
+    """Analyze transcript"""
+    try:
+        response = completion(
+            api_key=os.getenv("OPENAI_API_KEY"),
+            model="openai/gpt-5-nano",
+            messages=[
+                {"content": TRANSCRIPT_ANALYSIS_PROMPT, "role": "system"},
+                {"content": transcript, "role": "user"},
+            ],
+            response_format=AnalystResult,
+        )
+
+        # Parse the response content as AnalystResult
+        content = response.choices[0].message.content
+        if isinstance(content, AnalystResult):
+            return content
+        else:
+            # If it's a string, try to parse it as JSON
+            import json
+            data = json.loads(content)
+            return AnalystResult(**data)
+    except Exception as e:
+        logger.error(f"Error analyzing transcript: {e}")
+        # Return a default result if analysis fails
+        return AnalystResult(
+            summary="Analysis failed",
+            quality_score=0.0,
+            customer_intent="unknown"
+        )
+
+
+def generate_embedding(text: str) -> List[float]:
+    """Generate embedding for text"""
+    response = embedding(
+        api_key=os.getenv("OPENAI_API_KEY"),
+        model="text-embedding-ada-002",
+        input=[text],
+    )
+    logger.info(f"Embedding generated for text: {text}")
+
+    return response.data[0]["embedding"]
+
+
+async def save_corpus():
+    final_corpus = []
+    for chunk in corpus:
+        knowledge_base = KnowledgeBase(
+            content=chunk["content"],
+            embedding=generate_embedding(chunk["content"]),
+        )
+        final_corpus.append(knowledge_base)
+    await KnowledgeBase.insert_many(final_corpus)
+    logger.info(f"Knowledge base saved")
+
+    return True
+
+
+async def vector_search(query: str) -> List[KnowledgeBase]:
+    """Vector search"""
+    query_embedding = generate_embedding(query)
+
+    pipeline = [
+        {
+            "$vectorSearch": {
+                "index": "vector_index",
+                "queryVector": query_embedding,
+                "path": "embedding",
+                "exact": True,
+                "limit": 5,
+            }
+        },
+        {"$project": {"_id": 0, "content": 1, "score": {"$meta": "vectorSearchScore"}}},
+    ]
+    response = await KnowledgeBase.aggregate(pipeline).to_list()
+    logger.info(f"Vector search response: {response}")
+    return response
