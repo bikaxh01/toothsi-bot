@@ -6,52 +6,6 @@ import { AuthDialog } from "@/components/authDialog";
 import { useAuth } from "@/hooks/useAuth";
 import axios from "axios";
 
-// Columns for call details table
-const callDetailsColumns = [
-  {
-    accessorKey: "name",
-    header: "Name",
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
-  },
-  {
-    accessorKey: "phone",
-    header: "Phone",
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }: { row: any }) => (
-      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-        row.getValue("status") === "initiated" 
-          ? "bg-blue-100 text-blue-800" 
-          : row.getValue("status") === "completed"
-          ? "bg-green-100 text-green-800"
-          : "bg-gray-100 text-gray-800"
-      }`}>
-        {row.getValue("status")}
-      </span>
-    ),
-  },
-  {
-    accessorKey: "quality_score",
-    header: "Quality Score",
-    cell: ({ row }: { row: any }) => {
-      const score = row.getValue("quality_score");
-      return score ? `${score}/10` : "N/A";
-    },
-  },
-  {
-    accessorKey: "created_at",
-    header: "Created At",
-    cell: ({ row }: { row: any }) => {
-      const date = new Date(row.getValue("created_at"));
-      return date.toLocaleDateString() + " " + date.toLocaleTimeString();
-    },
-  },
-];
 
 // Columns for batches table
 const batchesColumns = [
@@ -90,6 +44,7 @@ export default function Home() {
   const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null);
   const [isPolling, setIsPolling] = useState(false);
   const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [redialingCalls, setRedialingCalls] = useState<Set<string>>(new Set());
 
   // Function to fetch batches from /batches endpoint
   const fetchBatches = useCallback(async () => {
@@ -133,6 +88,127 @@ export default function Home() {
       console.error("Error fetching call details:", error);
     }
   }, []);
+
+  // Function to redial a call
+  const redialCall = useCallback(async (callId: string) => {
+    console.log("Redialing call with ID:", callId);
+    
+    if (!callId) {
+      console.error("No call ID provided for redial");
+      alert("Error: No call ID found. Please refresh and try again.");
+      return;
+    }
+    
+    try {
+      setRedialingCalls(prev => new Set(prev).add(callId));
+      
+      const serverBaseUrl =
+        process.env.NEXT_PUBLIC_SERVER_BASE_URL || "http://localhost:3001";
+      const response = await axios.post(`${serverBaseUrl}/calls/${callId}/redial`);
+      
+      console.log("Redial response:", response.data);
+      
+      // Show success message (you could add a toast notification here)
+      alert(`Call redialed successfully! New call ID: ${response.data.vapi_call_id}`);
+      
+      // Refresh the call details to show updated status
+      if (selectedBatchId) {
+        fetchCallDetails(selectedBatchId);
+      }
+    } catch (error) {
+      console.error("Error redialing call:", error);
+      alert("Failed to redial call. Please try again.");
+    } finally {
+      setRedialingCalls(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(callId);
+        return newSet;
+      });
+    }
+  }, [selectedBatchId, fetchCallDetails]);
+
+  // Columns for call details table
+  const callDetailsColumns = [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+    },
+    {
+      accessorKey: "phone",
+      header: "Phone",
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }: { row: any }) => (
+        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+          row.getValue("status") === "initiated" 
+            ? "bg-blue-100 text-blue-800" 
+            : row.getValue("status") === "completed"
+            ? "bg-green-100 text-green-800"
+            : "bg-gray-100 text-gray-800"
+        }`}>
+          {row.getValue("status")}
+        </span>
+      ),
+    },
+    {
+      accessorKey: "quality_score",
+      header: "Quality Score",
+      cell: ({ row }: { row: any }) => {
+        const score = row.getValue("quality_score");
+        return score ? `${score}/10` : "N/A";
+      },
+    },
+    {
+      accessorKey: "created_at",
+      header: "Created At",
+      cell: ({ row }: { row: any }) => {
+        const date = new Date(row.getValue("created_at"));
+        return date.toLocaleDateString() + " " + date.toLocaleTimeString();
+      },
+    },
+    {
+      id: "redial",
+      header: "Actions",
+      cell: ({ row }: { row: any }) => {
+        const callId = row.original.id;
+        const isRedialing = redialingCalls.has(callId);
+        
+        // Debug logging
+        console.log("Row data:", row.original);
+        console.log("Call ID:", callId);
+        
+        return (
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent row expansion
+              redialCall(callId);
+            }}
+            disabled={isRedialing || !callId}
+            className={`px-3 py-1 text-sm rounded-md transition-colors ${
+              isRedialing || !callId
+                ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                : "bg-red-600 text-white hover:bg-red-700"
+            }`}
+          >
+            {isRedialing ? (
+              <div className="flex items-center gap-1">
+                <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
+                <span>Redialing...</span>
+              </div>
+            ) : (
+              "Redial"
+            )}
+          </button>
+        );
+      },
+    },
+  ];
 
   // Start polling function
   const startPolling = useCallback((batchId: string) => {

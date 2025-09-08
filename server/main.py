@@ -9,6 +9,8 @@ from typing import List
 from utils.call_executor import CallExecutor
 from utils.vapi_client import VAPIClient
 from loguru import logger
+from bson import ObjectId
+from datetime import datetime
 
 from utils.tools import get_pincode_data, handle_tool_call, extract_pincode_data, group_pincode_data_by_city_and_store
 from fastapi.middleware.cors import CORSMiddleware
@@ -259,6 +261,115 @@ async def get_calls_by_batch(batch_id: str):
         raise HTTPException(
             status_code=500, 
             detail=f"Error fetching calls: {str(e)}"
+        )
+
+
+@app.post("/calls/{call_id}/redial")
+async def redial_call(call_id: str):
+    """
+    Redial a call by call ID
+    - Clears existing call result
+    - Executes the call again using CallExecutor
+    - Updates call status and returns success
+    """
+    try:
+        logger.info(f"🔄 Starting redial process for call ID: {call_id}")
+        
+        # Validate call_id
+        if not call_id or call_id == "undefined" or call_id == "null":
+            logger.error(f"❌ Invalid call ID provided: {call_id}")
+            raise HTTPException(
+                status_code=400, 
+                detail="Invalid call ID provided"
+            )
+        
+        # Validate ObjectId format
+        try:
+            object_id = ObjectId(call_id)
+        except Exception as e:
+            logger.error(f"❌ Invalid ObjectId format for call_id: {call_id}, error: {e}")
+            raise HTTPException(
+                status_code=400, 
+                detail=f"Invalid call ID format: {call_id}"
+            )
+        
+        # Find the call record
+        call_record = await Call.find_one({"_id": object_id})
+        if not call_record:
+            logger.error(f"❌ Call not found with ID: {call_id}")
+            raise HTTPException(
+                status_code=404, 
+                detail=f"Call not found with ID: {call_id}"
+            )
+        
+        logger.info(f"✅ Found call record: {call_record.id}")
+        logger.info(f"📞 Call details - User: {call_record.user.name}, Phone: {call_record.user.phone}")
+        
+        # Clear existing call result and set status to redialed
+        logger.info(f"🧹 Clearing existing call result for call: {call_id}")
+        await call_record.update({
+            "$set": {
+                "call_result": None,
+                "status": "redialed",
+                "vapi_call_id": None,
+                "updated_at": datetime.utcnow()
+            }
+        })
+        
+        logger.info(f"✅ Cleared call result and set status to redialed")
+        
+        # Execute the call using CallExecutor
+        logger.info(f"🚀 Executing redial for call: {call_id}")
+        call_executor = CallExecutor(vapi_client=VAPIClient())
+        
+        success, vapi_call_id, error_message = await call_executor.execute_call(call_record)
+        
+        # Update the call with the new vapi_call_id if successful
+        if success and vapi_call_id:
+            logger.info(f"📞 Updating call with new VAPI call ID: {vapi_call_id}")
+            await call_record.update({
+                "$set": {
+                    "vapi_call_id": vapi_call_id,
+                    "updated_at": datetime.utcnow()
+                }
+            })
+        
+        if success and vapi_call_id:
+            logger.success(f"✅ Redial successful for call: {call_id}")
+            logger.success(f"📞 New VAPI call ID: {vapi_call_id}")
+            
+            return {
+                "status": "success",
+                "message": "Call redialed successfully",
+                "call_id": call_id,
+                "vapi_call_id": vapi_call_id
+            }
+        else:
+            logger.error(f"❌ Redial failed for call: {call_id}")
+            logger.error(f"❌ Error: {error_message}")
+            
+            # Update call status to failed
+            await call_record.update({
+                "$set": {
+                    "status": CallStatus.FAILED,
+                    "updated_at": datetime.utcnow()
+                }
+            })
+            
+            raise HTTPException(
+                status_code=500,
+                detail=f"Failed to redial call: {error_message}"
+            )
+            
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"❌ Error in redial endpoint: {e}")
+        import traceback
+        logger.error(f"📍 Full traceback: {traceback.format_exc()}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error redialing call: {str(e)}"
         )
 
 
