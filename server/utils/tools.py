@@ -346,7 +346,7 @@ async def rag_call(query: str, contents: str) -> str:
             {"role": "system", "content": rag_prompt},
             {
                 "role": "user",
-                "content": "Query: " + query + "\n\n" + "Context: " + contents,
+                "content": "Context: " + contents + "\n\n" + "Query: " + query,
             },
         ],
     )
