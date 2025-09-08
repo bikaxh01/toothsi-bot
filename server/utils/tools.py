@@ -236,7 +236,7 @@ async def handle_tool_call(tool_call_data: Dict[str, Any]) -> Dict[str, Any]:
         )
 
         # Route to appropriate tool function
-        if tool_name == "knowbase":
+        if tool_name == "Knowledgebase":
             result_string = await handle_vector_search_tool(tool_parameters)
         # elif tool_name == "get_pincode_data":
         #     result_string = await handle_get_pincode_data_tool(tool_parameters)
