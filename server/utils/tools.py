@@ -67,6 +67,9 @@ async def extract_pincode_data() -> List[Dict]:
         raise e
 
 
+
+
+# Saves pincode data to pincode schema
 async def save_pincode_data() -> List[PincodeData]:
     """
     Save pincode data to the database
@@ -96,6 +99,7 @@ async def save_pincode_data() -> List[PincodeData]:
     return pincode_data
 
 
+# get pincode data from pincode schema
 async def get_pincode_data(
     pincode: Optional[str] = None, city: Optional[str] = None
 ) -> List[PincodeData]:
@@ -126,6 +130,8 @@ async def get_pincode_data(
     return str(json_data)
 
 
+
+#  store pincode data to vector store
 async def group_pincode_data_by_city_and_store() -> Dict[str, Any]:
     """
     Group pincode data by city and store in KnowledgeBase with embeddings
