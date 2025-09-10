@@ -3,19 +3,18 @@ from model.model import connect_to_db, User
 import uvicorn
 from model.model import Batch, User, Call, CallStatus
 import os
-from utils.analyst import vector_search, save_corpus
+
 from utils.document import read_xlsx_file
-from typing import List
+
 from utils.call_executor import CallExecutor
 from utils.vapi_client import VAPIClient
 from loguru import logger
 from bson import ObjectId
 from datetime import datetime
 
-from utils.tools import get_pincode_data, handle_tool_call, extract_pincode_data, group_pincode_data_by_city_and_store
+from utils.tools import handle_tool_call, get_near_by_clinic_data
 from fastapi.middleware.cors import CORSMiddleware
-import asyncio
-import json
+
 
 app = FastAPI()
 app.add_middleware(
@@ -36,20 +35,17 @@ async def startup_db_client():
 async def root():
     try:
         # Group pincode data by city and store in KnowledgeBase
-        # result = await group_pincode_data_by_city_and_store()
-        
-        return {
-            "message": "Hello World", 
-            "operation": "grouped_pincode_data_by_city_and_stored_in_knowledge_base",
-            "result": "result"
-        }
-        
-    except Exception as e:
-        logger.error(f"❌ Error in root route: {e}")
+        result = await get_near_by_clinic_data(pincode="500005")
+
         return {
             "message": "Hello World",
-            "error": str(e)
+            "operation": "grouped_pincode_data_by_city_and_stored_in_knowledge_base",
+            "result": result,
         }
+
+    except Exception as e:
+        logger.error(f"❌ Error in root route: {e}")
+        return {"message": "Hello World", "error": str(e)}
 
 
 @app.post("/upload")
@@ -124,8 +120,6 @@ async def upload_file(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=f"Error processing file: {str(e)}")
 
 
-
-
 from utils.events import handle_call_completion, handle_call_started
 
 
@@ -138,20 +132,18 @@ async def handle_call_events(request: Request, background_tasks: BackgroundTasks
         client_ip = request.client.host if request.client else "unknown"
 
         logger.info(f"🌐 WEBHOOK RECEIVED from {client_ip}")
-      
 
         webhook_data = await request.json()
-        
+
         # Extract event type from nested structure
         message_data = webhook_data.get("message", {})
         event_type = message_data.get("type", "unknown")
-        
+
         # Also check for direct type field as fallback
         if event_type == "unknown":
             event_type = webhook_data.get("type", "unknown")
 
         logger.info(f"📞 VAPI webhook type: {event_type}")
-     
 
         # Return immediately and process in background for long-running operations
         if event_type in ["call.completed", "call.ended", "end-of-call-report"]:
@@ -160,7 +152,7 @@ async def handle_call_events(request: Request, background_tasks: BackgroundTasks
             return {
                 "status": "received",
                 "event_type": event_type,
-                "message": "Webhook queued for background processing"
+                "message": "Webhook queued for background processing",
             }
         elif event_type == "call.started":
             logger.info("🎯 Processing call.started webhook immediately")
@@ -189,7 +181,7 @@ async def get_all_batches():
     try:
         # Find all batches sorted by created_at in descending order (latest first)
         batches = await Batch.find_all().sort("-created_at").to_list()
-        
+
         # Convert batches to dict format for JSON response
         batches_data = []
         for batch in batches:
@@ -197,21 +189,15 @@ async def get_all_batches():
                 "id": str(batch.id),
                 "file_name": batch.file_name,
                 "url": batch.url,
-                "created_at": batch.created_at.isoformat()
+                "created_at": batch.created_at.isoformat(),
             }
             batches_data.append(batch_dict)
-        
-        return {
-            "total_batches": len(batches_data),
-            "batches": batches_data
-        }
-        
+
+        return {"total_batches": len(batches_data), "batches": batches_data}
+
     except Exception as e:
         logger.error(f"Error fetching all batches: {e}")
-        raise HTTPException(
-            status_code=500, 
-            detail=f"Error fetching batches: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Error fetching batches: {str(e)}")
 
 
 @app.get("/calls/batch/{batch_id}")
@@ -222,13 +208,12 @@ async def get_calls_by_batch(batch_id: str):
     try:
         # Find all calls with the given batch_id
         calls = await Call.find(Call.batch_id == batch_id).to_list()
-        
+
         if not calls:
             raise HTTPException(
-                status_code=404, 
-                detail=f"No calls found for batch ID: {batch_id}"
+                status_code=404, detail=f"No calls found for batch ID: {batch_id}"
             )
-        
+
         # Convert calls to dict format for JSON response
         calls_data = []
         for call in calls:
@@ -239,29 +224,26 @@ async def get_calls_by_batch(batch_id: str):
                 "user": {
                     "name": call.user.name,
                     "email": call.user.email,
-                    "phone": call.user.phone
+                    "phone": call.user.phone,
                 },
                 "vapi_call_id": call.vapi_call_id,
                 "call_result": call.call_result.dict() if call.call_result else None,
                 "created_at": call.created_at.isoformat(),
-                "updated_at": call.updated_at.isoformat()
+                "updated_at": call.updated_at.isoformat(),
             }
             calls_data.append(call_dict)
-        
+
         return {
             "batch_id": batch_id,
             "total_calls": len(calls_data),
-            "calls": calls_data
+            "calls": calls_data,
         }
-        
+
     except HTTPException:
         raise
     except Exception as e:
         logger.error(f"Error fetching calls for batch {batch_id}: {e}")
-        raise HTTPException(
-            status_code=500, 
-            detail=f"Error fetching calls: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Error fetching calls: {str(e)}")
 
 
 @app.post("/calls/{call_id}/redial")
@@ -274,160 +256,159 @@ async def redial_call(call_id: str):
     """
     try:
         logger.info(f"🔄 Starting redial process for call ID: {call_id}")
-        
+
         # Validate call_id
         if not call_id or call_id == "undefined" or call_id == "null":
             logger.error(f"❌ Invalid call ID provided: {call_id}")
-            raise HTTPException(
-                status_code=400, 
-                detail="Invalid call ID provided"
-            )
-        
+            raise HTTPException(status_code=400, detail="Invalid call ID provided")
+
         # Validate ObjectId format
         try:
             object_id = ObjectId(call_id)
         except Exception as e:
-            logger.error(f"❌ Invalid ObjectId format for call_id: {call_id}, error: {e}")
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Invalid call ID format: {call_id}"
+            logger.error(
+                f"❌ Invalid ObjectId format for call_id: {call_id}, error: {e}"
             )
-        
+            raise HTTPException(
+                status_code=400, detail=f"Invalid call ID format: {call_id}"
+            )
+
         # Find the call record
         call_record = await Call.find_one({"_id": object_id})
         if not call_record:
             logger.error(f"❌ Call not found with ID: {call_id}")
             raise HTTPException(
-                status_code=404, 
-                detail=f"Call not found with ID: {call_id}"
+                status_code=404, detail=f"Call not found with ID: {call_id}"
             )
-        
+
         logger.info(f"✅ Found call record: {call_record.id}")
-        logger.info(f"📞 Call details - User: {call_record.user.name}, Phone: {call_record.user.phone}")
-        
+        logger.info(
+            f"📞 Call details - User: {call_record.user.name}, Phone: {call_record.user.phone}"
+        )
+
         # Clear existing call result and set status to redialed
         logger.info(f"🧹 Clearing existing call result for call: {call_id}")
-        await call_record.update({
-            "$set": {
-                "call_result": None,
-                "status": "redialed",
-                "vapi_call_id": None,
-                "updated_at": datetime.utcnow()
+        await call_record.update(
+            {
+                "$set": {
+                    "call_result": None,
+                    "status": "redialed",
+                    "vapi_call_id": None,
+                    "updated_at": datetime.utcnow(),
+                }
             }
-        })
-        
+        )
+
         logger.info(f"✅ Cleared call result and set status to redialed")
-        
+
         # Execute the call using CallExecutor
         logger.info(f"🚀 Executing redial for call: {call_id}")
         call_executor = CallExecutor(vapi_client=VAPIClient())
-        
-        success, vapi_call_id, error_message = await call_executor.execute_call(call_record)
-        
+
+        success, vapi_call_id, error_message = await call_executor.execute_call(
+            call_record
+        )
+
         # Update the call with the new vapi_call_id if successful
         if success and vapi_call_id:
             logger.info(f"📞 Updating call with new VAPI call ID: {vapi_call_id}")
-            await call_record.update({
-                "$set": {
-                    "vapi_call_id": vapi_call_id,
-                    "updated_at": datetime.utcnow()
+            await call_record.update(
+                {
+                    "$set": {
+                        "vapi_call_id": vapi_call_id,
+                        "updated_at": datetime.utcnow(),
+                    }
                 }
-            })
-        
+            )
+
         if success and vapi_call_id:
             logger.success(f"✅ Redial successful for call: {call_id}")
             logger.success(f"📞 New VAPI call ID: {vapi_call_id}")
-            
+
             return {
                 "status": "success",
                 "message": "Call redialed successfully",
                 "call_id": call_id,
-                "vapi_call_id": vapi_call_id
+                "vapi_call_id": vapi_call_id,
             }
         else:
             logger.error(f"❌ Redial failed for call: {call_id}")
             logger.error(f"❌ Error: {error_message}")
-            
+
             # Update call status to failed
-            await call_record.update({
-                "$set": {
-                    "status": CallStatus.FAILED,
-                    "updated_at": datetime.utcnow()
-                }
-            })
-            
-            raise HTTPException(
-                status_code=500,
-                detail=f"Failed to redial call: {error_message}"
+            await call_record.update(
+                {"$set": {"status": CallStatus.FAILED, "updated_at": datetime.utcnow()}}
             )
-            
+
+            raise HTTPException(
+                status_code=500, detail=f"Failed to redial call: {error_message}"
+            )
+
     except HTTPException:
         raise
     except Exception as e:
         logger.error(f"❌ Error in redial endpoint: {e}")
         import traceback
+
         logger.error(f"📍 Full traceback: {traceback.format_exc()}")
-        raise HTTPException(
-            status_code=500,
-            detail=f"Error redialing call: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Error redialing call: {str(e)}")
 
 
 @app.post("/vapi/tools")
 async def vapi_tools(request: Request):
     """VAPI tools handler - processes tool calls from VAPI"""
-    
+
     try:
         data = await request.json()
         logger.info(f"🔧 VAPI tools handler received: {data}")
-        
+
         # Extract message data from the request
         message_data = data.get("message", {})
         event_type = message_data.get("type", "")
-        
+
         # Check if this is a tool-calls event
         if event_type == "tool-calls":
             logger.info("🎯 Processing tool-calls event")
-            
+
             # Extract tool call list
             tool_call_list = message_data.get("toolCallList", [])
             tool_with_tool_call_list = message_data.get("toolWithToolCallList", [])
-            
+
             logger.info(f"📋 Found {len(tool_call_list)} tool calls")
             logger.info(f"📋 Tool call list: {tool_call_list}")
             logger.info(f"📋 Tool with tool call list: {tool_with_tool_call_list}")
-            
+
             # Process each tool call
             results = []
             for i, tool_call_data in enumerate(tool_with_tool_call_list):
-                logger.info(f"🔧 Processing tool call {i+1}/{len(tool_with_tool_call_list)}")
+                logger.info(
+                    f"🔧 Processing tool call {i+1}/{len(tool_with_tool_call_list)}"
+                )
                 logger.info(f"🔧 Tool call data structure: {tool_call_data}")
-                
+
                 # Handle the tool call
                 result = await handle_tool_call(tool_call_data)
                 results.append(result)
-                
-                logger.info(f"✅ Tool call {i+1} completed with result length: {len(result.get('result', ''))}")
+
+                logger.info(
+                    f"✅ Tool call {i+1} completed with result length: {len(result.get('result', ''))}"
+                )
             logger.info(f"🔧 🚀🚀🚀🚀🚀 Results: {results}")
-            return {
-                "results": results
-            }
-        
+            return {"results": results}
+
         else:
             logger.warning(f"⚠️ Unhandled event type: {event_type}")
             return {
                 "status": "ignored",
-                "message": f"Event type '{event_type}' not handled by tools endpoint"
+                "message": f"Event type '{event_type}' not handled by tools endpoint",
             }
-            
+
     except Exception as e:
         logger.error(f"❌ Error in VAPI tools handler: {e}")
         import traceback
+
         logger.error(f"📍 Full traceback: {traceback.format_exc()}")
-        return {
-            "status": "error",
-            "message": str(e)
-        }
+        return {"status": "error", "message": str(e)}
 
 
 if __name__ == "__main__":

@@ -99,36 +99,6 @@ async def save_pincode_data() -> List[PincodeData]:
     return pincode_data
 
 
-# get pincode data from pincode schema
-async def get_pincode_data(
-    pincode: Optional[str] = None, city: Optional[str] = None
-) -> List[PincodeData]:
-    """
-    Get pincode data from the database based on pincode and/or city filters
-    """
-    # Build query filter
-    query_filter = {}
-    if pincode:
-        query_filter["pincode"] = pincode
-    if city:
-        query_filter["city"] = city
-
-    # Execute query
-    pincode_data = await PincodeData.find(query_filter).limit(10).to_list()
-    logger.info(f"Found {len(pincode_data)} pincode data in the database")
-
-    if not pincode_data:
-        logger.warning(
-            f"No pincode data found in the database for pincode: {pincode} and city: {city}"
-        )
-
-    # Convert list of PincodeData objects to JSON
-    json_data = []
-    for data in pincode_data:
-        json_data.append(data.model_dump())
-
-    return str(json_data)
-
 
 
 #  store pincode data to vector store
@@ -244,11 +214,11 @@ async def handle_tool_call(tool_call_data: Dict[str, Any]) -> Dict[str, Any]:
         # Route to appropriate tool function
         if tool_name == "Knowledgebase":
             result_string = await handle_vector_search_tool(tool_parameters)
-        # elif tool_name == "get_pincode_data":
-        #     result_string = await handle_get_pincode_data_tool(tool_parameters)
+        elif tool_name == "nearby_clinic":
+            result_string = await handle_nearby_clinic_tool(tool_parameters)
         else:
             logger.warning(f"⚠️ Unknown tool: {tool_name}")
-            result_string = f"Error: Unknown tool '{tool_name}'. Available tools: vector_search, get_pincode_data"
+            result_string = f"Error: Unknown tool '{tool_name}'. Available tools: Knowledgebase, nearby_clinic"
 
         return {"toolCallId": tool_call_id, "result": result_string}
 
@@ -258,6 +228,41 @@ async def handle_tool_call(tool_call_data: Dict[str, Any]) -> Dict[str, Any]:
             "toolCallId": tool_call_data.get("toolCall", {}).get("id", ""),
             "result": f"Error: {str(e)}",
         }
+
+
+async def handle_nearby_clinic_tool(parameters: Dict[str, Any]) -> str:
+    """
+    Handle nearby clinic tool calls
+
+    Args:
+        parameters: Tool parameters containing 'pincode' and/or 'city'
+
+    Returns:
+        String containing nearby clinic data
+    """
+    try:
+        logger.info(f"🏥 Nearby clinic tool received parameters: {parameters}")
+        logger.info(f"🏥 Parameters type: {type(parameters)}")
+        logger.info(
+            f"🏥 Parameters keys: {list(parameters.keys()) if isinstance(parameters, dict) else 'Not a dict'}"
+        )
+
+        pincode = parameters.get("pincode", "")
+        city = parameters.get("city", "")
+        
+        logger.info(f"🏥 Extracted pincode: '{pincode}', city: '{city}'")
+
+        # Call the nearby clinic function
+        result = await get_near_by_clinic_data(
+            pincode=pincode if pincode else None,
+            city=city if city else None
+        )
+
+        return result
+
+    except Exception as e:
+        logger.error(f"❌ Error in nearby clinic tool: {e}")
+        return f"Error: Nearby clinic search failed - {str(e)}"
 
 
 async def handle_vector_search_tool(parameters: Dict[str, Any]) -> str:
@@ -465,71 +470,145 @@ async def rag_call(query: str, contents: str) -> str:
     return res.choices[0].message.content
 
 
-async def handle_get_pincode_data_tool(parameters: Dict[str, Any]) -> str:
+
+
+async def get_near_by_clinic_data(pincode: Optional[str] = None, city: Optional[str] = None) -> str:
     """
-    Handle get pincode data tool calls
-
+    Get nearby clinic data based on city and/or pincode
+    
     Args:
-        parameters: Tool parameters containing 'pincode' and/or 'city'
-
+        pincode: Optional pincode to search for
+        city: Optional city name to search for
+        
     Returns:
-        String containing pincode data
+        String containing clinic information
     """
     try:
-        pincode = parameters.get("pincode", "")
-        city = parameters.get("city", "")
-
-        logger.info(f"📍 Getting pincode data for pincode: {pincode}, city: {city}")
-
-        # Get pincode data
-        pincode_data = await get_pincode_data(pincode=pincode, city=city)
-
-        # Parse the string result back to list
-        import json
-
-        try:
-            parsed_data = (
-                json.loads(pincode_data)
-                if isinstance(pincode_data, str)
-                else pincode_data
+        from difflib import get_close_matches
+        
+        logger.info(f"🏥 Getting nearby clinic data for pincode: {pincode}, city: {city}")
+        
+        # If both pincode and city are provided, search for exact match
+        if pincode and city:
+            # First, try exact city match
+            query_filter = {"pincode": pincode, "city": city}
+            exact_results = await PincodeData.find(query_filter).to_list()
+            
+            if exact_results:
+                logger.info(f"✅ Found exact match for pincode {pincode} and city {city}")
+                return _format_clinic_results(exact_results, f"Exact match for pincode {pincode} in {city}")
+            
+            # If no exact match, try fuzzy search for city name
+            logger.info(f"🔍 No exact city match found, trying fuzzy search for city: {city}")
+            
+            # Get all unique cities from database for fuzzy matching
+            all_cities = await PincodeData.distinct("city")
+            logger.info(f"📋 Available cities in database: {all_cities[:10]}...")  # Log first 10 cities
+            
+            # Find closest city match using fuzzy search
+            city_matches = get_close_matches(
+                city.title(),  # Convert to title case for matching
+                [c.title() for c in all_cities if c],  # Convert all cities to title case
+                n=3,  # Get top 3 matches
+                cutoff=0.6  # Minimum similarity threshold
             )
-        except json.JSONDecodeError:
-            parsed_data = []
-
-        if not parsed_data:
-            search_criteria = []
-            if pincode:
-                search_criteria.append(f"pincode '{pincode}'")
-            if city:
-                search_criteria.append(f"city '{city}'")
-
-            criteria_text = (
-                " and ".join(search_criteria)
-                if search_criteria
-                else "the specified criteria"
+            
+            if city_matches:
+                best_match = city_matches[0]
+                logger.info(f"🎯 Best fuzzy match for '{city}': '{best_match}'")
+                
+                # Search with the best matching city
+                fuzzy_query_filter = {"pincode": pincode, "city": best_match}
+                fuzzy_results = await PincodeData.find(fuzzy_query_filter).to_list()
+                
+                if fuzzy_results:
+                    return _format_clinic_results(fuzzy_results, f"Found match for pincode {pincode} in {best_match} (fuzzy match for '{city}')")
+            
+            # If still no match, return nearby clinics from the same pincode
+            logger.info(f"🔍 No city match found, searching for any clinics in pincode {pincode}")
+            pincode_only_results = await PincodeData.find({"pincode": pincode}).limit(5).to_list()
+            
+            if pincode_only_results:
+                return _format_clinic_results(pincode_only_results, f"Found clinics in pincode {pincode} (city '{city}' not found)")
+            
+            return f"No clinics found for pincode {pincode} and city '{city}'. Please verify the pincode and city name."
+        
+        # If only city is provided, get 5 clinics from that city
+        elif city and not pincode:
+            # Try exact city match first
+            exact_results = await PincodeData.find({"city": city}).limit(5).to_list()
+            
+            if exact_results:
+                logger.info(f"✅ Found exact match for city: {city}")
+                return _format_clinic_results(exact_results, f"Clinics in {city}")
+            
+            # Try fuzzy search for city
+            logger.info(f"🔍 No exact city match found, trying fuzzy search for city: {city}")
+            
+            all_cities = await PincodeData.distinct("city")
+            city_matches = get_close_matches(
+                city.title(),
+                [c.title() for c in all_cities if c],
+                n=3,
+                cutoff=0.6
             )
-            return f"No pincode data found for {criteria_text}"
-
-        # Format results as a readable string
-        result_text = f"Found {len(parsed_data)} pincode record(s):\n\n"
-
-        for i, data in enumerate(parsed_data, 1):
-            result_text += f"{i}. Pincode: {data.get('pincode', 'N/A')}\n"
-            result_text += f"   City: {data.get('city', 'N/A')}\n"
-            result_text += f"   Home Scan: {data.get('home_scan', 'N/A')}\n"
-
-            clinic_1 = data.get("clinic_1", "")
-            clinic_2 = data.get("clinic_2", "")
-
-            if clinic_1:
-                result_text += f"   Clinic 1: {clinic_1}\n"
-            if clinic_2:
-                result_text += f"   Clinic 2: {clinic_2}\n"
-
-            result_text += "\n"
-
-        return result_text.strip()
-
+            
+            if city_matches:
+                best_match = city_matches[0]
+                logger.info(f"🎯 Best fuzzy match for '{city}': '{best_match}'")
+                
+                fuzzy_results = await PincodeData.find({"city": best_match}).limit(5).to_list()
+                
+                if fuzzy_results:
+                    return _format_clinic_results(fuzzy_results, f"Clinics in {best_match} (fuzzy match for '{city}')")
+            
+            return f"No clinics found for city '{city}'. Please check the city name spelling."
+        
+        # If only pincode is provided, get clinics for that pincode
+        elif pincode and not city:
+            results = await PincodeData.find({"pincode": pincode}).limit(5).to_list()
+            
+            if results:
+                return _format_clinic_results(results, f"Clinics in pincode {pincode}")
+            
+            return f"No clinics found for pincode {pincode}. Please verify the pincode."
+        
+        # If neither is provided, return error
+        else:
+            return "Error: Please provide either city or pincode (or both) to search for nearby clinics."
+    
     except Exception as e:
-        logger.error(f"❌ Error in get pincode data: {e}")
-        return f"Error: Get pincode data failed - {str(e)}"
+        logger.error(f"❌ Error getting nearby clinic data: {e}")
+        return f"Error: Failed to get clinic data - {str(e)}"
+
+
+def _format_clinic_results(results: List[PincodeData], header: str) -> str:
+    """
+    Format clinic results into a readable string
+    
+    Args:
+        results: List of PincodeData objects
+        header: Header text for the results
+        
+    Returns:
+        Formatted string with clinic information
+    """
+    if not results:
+        return "No clinic data found."
+    
+    result_text = f"{header}:\n\n"
+    
+    for i, data in enumerate(results, 1):
+        result_text += f"{i}. Pincode: {data.pincode}\n"
+        result_text += f"   City: {data.city}\n"
+        result_text += f"   Home Scan Available: {data.home_scan}\n"
+        
+        if data.clinic_1:
+            result_text += f"   Clinic 1: {data.clinic_1}\n"
+        if data.clinic_2:
+            result_text += f"   Clinic 2: {data.clinic_2}\n"
+        
+        result_text += "\n"
+    
+    return result_text.strip()
+    
