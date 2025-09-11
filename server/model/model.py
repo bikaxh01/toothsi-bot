@@ -81,32 +81,30 @@ class Call(Document):
 
 
 async def connect_to_db():
-    max_retries = 3
-    retry_delay = 2  # seconds
-    
-    for attempt in range(max_retries):
-        try:
-            if not MONGO_URI:
-                raise ValueError("MONGO_URI is not set in environment variables")
 
-            # Configure MongoDB client with proper timeout and connection settings
-            client = AsyncMongoClient(
-                MONGO_URI,
-               
-            )
-            
-            # Test the connection first
-            await client.admin.command('ping')
-            logger.info("✅ MongoDB ping successful")
-            
-            database = client[DB_NAME]
-            await init_beanie(
-                database=database, document_models=[Batch, Call, PincodeData, KnowledgeBase]
-            )
+    try:
+        logger.info("Connecting to MongoDB")
+        if not MONGO_URI:
+            raise ValueError("MONGO_URI is not set in environment variables")
 
-            logger.info("✅ Successfully connected to MongoDB")
-            return  # Success, exit the retry loop
-            
-        except Exception as e:
-            logger.error(f"❌ MongoDB connection attempt {attempt + 1}/{max_retries} failed: {str(e)}")
-            raise e
+        logger.info(f"Connecting to MongoDB: {MONGO_URI}")
+        # Configure MongoDB client with proper timeout and connection settings
+        client = AsyncMongoClient(
+            MONGO_URI,
+        )
+
+        # Test the connection first
+        await client.admin.command("ping")
+        logger.info("✅ MongoDB ping successful")
+
+        database = client[DB_NAME]
+        await init_beanie(
+            database=database, document_models=[Batch, Call, PincodeData, KnowledgeBase]
+        )
+
+        logger.info("✅ Successfully connected to MongoDB")
+        return  # Success, exit the retry loop
+
+    except Exception as e:
+        logger.error(f"❌ MongoDB connection attempt  failed: {str(e)}")
+        raise e
