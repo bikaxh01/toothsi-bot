@@ -28,6 +28,7 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup_db_client():
+    logger.info("🟢🟢Connecting to MongoDB")
     await connect_to_db()
 
 
