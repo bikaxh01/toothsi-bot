@@ -10,6 +10,7 @@ from utils.analyst import analyze_transcript
 async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]:
     """Process call completion webhook data with transcript retrieval and Gemini analysis"""
     try:
+        logger.info(f"🎯 Processing call completion for webhook data: {webhook_data}")
         # Extract call info from nested structure
         message_data = webhook_data.get("message", {})
         call_info = webhook_data.get("call", {})
@@ -28,7 +29,6 @@ async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]
 
         logger.info(f"🎯 Processing call completion for VAPI call: {vapi_call_id}")
 
-        logger.info(f"🔍 Searching for call record with VAPI ID: {vapi_call_id}")
         call_record = await Call.find_one({"vapi_call_id": vapi_call_id})
 
         if not call_record:

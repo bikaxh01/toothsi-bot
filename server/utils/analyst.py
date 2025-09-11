@@ -50,7 +50,7 @@ def analyze_transcript(transcript: str) -> AnalystResult:
     try:
         # Log input transcript
         logger.info(f"📝 Analyzing transcript (length: {len(transcript)} characters)")
-        logger.info(f"📄 Input transcript: {transcript}")
+    
 
         response = completion(
             api_key=os.getenv("OPENAI_API_KEY"),
@@ -76,9 +76,6 @@ def analyze_transcript(transcript: str) -> AnalystResult:
         # Log the generated response
         logger.info(f"✅ Transcript analysis completed successfully")
         logger.info(f"📊 Generated response:")
-        logger.info(f"   - Summary: {result.summary}")
-        logger.info(f"   - Quality Score: {result.quality_score}")
-        logger.info(f"   - Customer Intent: {result.customer_intent}")
 
         return result
 
