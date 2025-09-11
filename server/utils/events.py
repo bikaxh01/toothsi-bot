@@ -10,12 +10,22 @@ from utils.analyst import analyze_transcript
 async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]:
     """Process call completion webhook data with transcript retrieval and Gemini analysis"""
     try:
-        logger.info(f"🎯 Processing call completion for webhook data: {webhook_data}")
+       
         # Extract call info from nested structure
         message_data = webhook_data.get("message", {})
         call_info = webhook_data.get("call", {})
-        recording_info = webhook_data.get("artifact", {})
-        logger.info(f"🔍 Recording info: {recording_info}")
+        
+        # Extract artifact data from the correct location (message.artifact)
+        artifact_data = message_data.get("artifact", {})
+        
+        # Extract essential artifact information
+        stereo_recording_url = artifact_data.get("stereoRecordingUrl")
+        
+        
+        logger.info(f"🎵 Stereo Recording URL: {stereo_recording_url}")
+        
+        
+       
         # Try to get call ID from multiple possible locations
         vapi_call_id = (
             call_info.get("id")
@@ -48,12 +58,13 @@ async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]
 
         logger.info(f"📊 Extracted status: {status}")
 
-        # Extract transcript from multiple possible locations
+        # Extract transcript from multiple possible locations (including artifact)
         webhook_transcript = (
             call_info.get("transcript", "")
             or message_data.get("transcript", "")
             or call_info.get("artifact", {}).get("transcript", "")
             or message_data.get("artifact", {}).get("transcript", "")
+            or artifact_data.get("transcript", "")  # Use the artifact transcript we extracted
         )
 
         logger.info(f"📝 Webhook transcript length: {len(webhook_transcript)}")
@@ -130,6 +141,7 @@ async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]
                     "quality_score": final_quality_score,
                     "customer_intent": final_customer_intent,
                     "transcript": final_transcript,
+                    "recording_url": stereo_recording_url,
                 },
                 "updated_at": datetime.utcnow(),
             }
@@ -138,9 +150,14 @@ async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]
             try:
                 await call_record.update({"$set": update_data})
                 logger.info(f"✅ Call result updated successfully: {call_id}")
+                
+                # Final success summary
+                logger.info(f"🎉 Call processing complete - ID: {call_id}, Stereo: {stereo_recording_url}")
+                
                 return {
                     "status": "success",
                     "message": "Call completion processed successfully",
+                    "stereo_recording_url": stereo_recording_url,
                 }
             except Exception as e:
                 logger.error(f"❌ Error updating call record: {e}")

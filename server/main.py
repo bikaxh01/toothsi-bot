@@ -133,7 +133,7 @@ async def handle_call_events(request: Request, background_tasks: BackgroundTasks
         headers = dict(request.headers)
         client_ip = request.client.host if request.client else "unknown"
 
-        logger.info(f"🌐 WEBHOOK RECEIVED from {client_ip}")
+    
 
         webhook_data = await request.json()
 

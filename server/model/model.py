@@ -57,6 +57,7 @@ class CallResult(BaseModel):
     transcript: Optional[str] = None
     quality_score: Optional[float] = None
     customer_intent: Optional[str] = None
+    recording_url: Optional[str] = None
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 
