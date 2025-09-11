@@ -92,15 +92,7 @@ async def connect_to_db():
             # Configure MongoDB client with proper timeout and connection settings
             client = AsyncMongoClient(
                 MONGO_URI,
-                serverSelectionTimeoutMS=10000,  # 10 seconds timeout for server selection
-                connectTimeoutMS=10000,         # 10 seconds timeout for connection
-                socketTimeoutMS=30000,          # 30 seconds timeout for socket operations
-                maxPoolSize=50,                 # Maximum number of connections in the pool
-                minPoolSize=5,                  # Minimum number of connections in the pool
-                maxIdleTimeMS=30000,            # Close connections after 30 seconds of inactivity
-                retryWrites=True,               # Enable retryable writes
-                retryReads=True,                # Enable retryable reads
-                heartbeatFrequencyMS=10000,     # Send heartbeat every 10 seconds
+               
             )
             
             # Test the connection first
@@ -117,11 +109,4 @@ async def connect_to_db():
             
         except Exception as e:
             logger.error(f"❌ MongoDB connection attempt {attempt + 1}/{max_retries} failed: {str(e)}")
-            
-            if attempt < max_retries - 1:
-                logger.info(f"⏳ Retrying in {retry_delay} seconds...")
-                await asyncio.sleep(retry_delay)
-                retry_delay *= 2  # Exponential backoff
-            else:
-                logger.error("❌ All MongoDB connection attempts failed")
-                raise e
+            raise e
