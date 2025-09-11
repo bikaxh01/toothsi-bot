@@ -14,7 +14,8 @@ async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]
         # Extract call info from nested structure
         message_data = webhook_data.get("message", {})
         call_info = webhook_data.get("call", {})
-
+        recording_info = webhook_data.get("artifact", {})
+        logger.info(f"🔍 Recording info: {recording_info}")
         # Try to get call ID from multiple possible locations
         vapi_call_id = (
             call_info.get("id")
