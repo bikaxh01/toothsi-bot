@@ -64,6 +64,38 @@ export function RowDetail({ data }: RowDetailProps) {
               </p>
             </div>
           </div>
+          
+          <div className="space-y-3">
+            <h4 className="font-semibold text-gray-700 text-base">Audio Recording</h4>
+            <div className="text-sm bg-white p-4 rounded border">
+              {data.recording_url ? (
+                <div className="space-y-3">
+                  <audio 
+                    controls 
+                    className="w-full"
+                    preload="metadata"
+                  >
+                    <source src={data.recording_url} type="audio/mpeg" />
+                    <source src={data.recording_url} type="audio/wav" />
+                    <source src={data.recording_url} type="audio/mp3" />
+                    Your browser does not support the audio element.
+                  </audio>
+                  <div className="text-xs text-gray-600">
+                    <a 
+                      href={data.recording_url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 underline"
+                    >
+                      Download audio file
+                    </a>
+                  </div>
+                </div>
+              ) : (
+                <span className="text-gray-500 italic">No audio recording available</span>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

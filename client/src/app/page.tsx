@@ -79,7 +79,8 @@ export default function Home() {
         summary: call.call_result?.summary || null,
         transcript: call.call_result?.transcript || null,
         quality_score: call.call_result?.quality_score || null,
-        customer_intent: call.call_result?.customer_intent || null
+        customer_intent: call.call_result?.customer_intent || null,
+        recording_url: call.call_result?.recording_url || null
       }));
       
       setCallDetailsData(transformedData);
