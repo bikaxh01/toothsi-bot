@@ -1,5 +1,5 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException, Request, BackgroundTasks
-from model.model import connect_to_db, User
+from model.model import connect_to_db, close_db_connection, User
 import uvicorn
 from model.model import Batch, User, Call, CallStatus
 import os
@@ -28,8 +28,22 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup_db_client():
+    """
+    Initialize database connection on application startup.
+    Uses Motor async client for better performance and reliability.
+    """
     logger.info("🟢🟢Connecting to MongoDB")
     await connect_to_db()
+
+
+@app.on_event("shutdown")
+async def shutdown_db_client():
+    """
+    Close database connection gracefully on application shutdown.
+    This ensures proper cleanup of resources.
+    """
+    logger.info("🔴 Shutting down MongoDB connection")
+    await close_db_connection()
 
 
 @app.get("/")
@@ -37,16 +51,10 @@ async def root():
     try:
         # Group pincode data by city and store in KnowledgeBase
         result = await get_near_by_clinic_data(pincode="500005")
-
-        return {
-            "message": "Hello World",
-            "operation": "grouped_pincode_data_by_city_and_stored_in_knowledge_base",
-            "result": result,
-        }
-
+        return {"message": "Hello World", "result": result}
     except Exception as e:
-        logger.error(f"❌ Error in root route: {e}")
-        return {"message": "Hello World", "error": str(e)}
+        logger.error(f"Error in root endpoint: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 
