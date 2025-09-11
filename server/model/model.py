@@ -89,7 +89,7 @@ async def connect_to_db():
 
 
         client = AsyncMongoClient(
-            MONGO_URI,
+           "mongodb+srv://bikaxh:bikash1@cluster0.0r9fjmy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
         )
         await client.admin.command("ping")
         database = client[DB_NAME]
