@@ -81,17 +81,47 @@ class Call(Document):
 
 
 async def connect_to_db():
-    try:
-        if not MONGO_URI:
-            raise ValueError("MONGODB_URL is not set in environment variables")
+    max_retries = 3
+    retry_delay = 2  # seconds
+    
+    for attempt in range(max_retries):
+        try:
+            if not MONGO_URI:
+                raise ValueError("MONGO_URI is not set in environment variables")
 
-        client = AsyncMongoClient(MONGO_URI)
-        database = client[DB_NAME]
-        await init_beanie(
-            database=database, document_models=[Batch, Call, PincodeData, KnowledgeBase]
-        )
+            # Configure MongoDB client with proper timeout and connection settings
+            client = AsyncMongoClient(
+                MONGO_URI,
+                serverSelectionTimeoutMS=10000,  # 10 seconds timeout for server selection
+                connectTimeoutMS=10000,         # 10 seconds timeout for connection
+                socketTimeoutMS=30000,          # 30 seconds timeout for socket operations
+                maxPoolSize=50,                 # Maximum number of connections in the pool
+                minPoolSize=5,                  # Minimum number of connections in the pool
+                maxIdleTimeMS=30000,            # Close connections after 30 seconds of inactivity
+                retryWrites=True,               # Enable retryable writes
+                retryReads=True,                # Enable retryable reads
+                heartbeatFrequencyMS=10000,     # Send heartbeat every 10 seconds
+            )
+            
+            # Test the connection first
+            await client.admin.command('ping')
+            logger.info("✅ MongoDB ping successful")
+            
+            database = client[DB_NAME]
+            await init_beanie(
+                database=database, document_models=[Batch, Call, PincodeData, KnowledgeBase]
+            )
 
-        logger.info("Successfully connected to MongoDB")
-    except Exception as e:
-        logger.error(f"Error connecting to database: {str(e)}")
-        raise e
+            logger.info("✅ Successfully connected to MongoDB")
+            return  # Success, exit the retry loop
+            
+        except Exception as e:
+            logger.error(f"❌ MongoDB connection attempt {attempt + 1}/{max_retries} failed: {str(e)}")
+            
+            if attempt < max_retries - 1:
+                logger.info(f"⏳ Retrying in {retry_delay} seconds...")
+                await asyncio.sleep(retry_delay)
+                retry_delay *= 2  # Exponential backoff
+            else:
+                logger.error("❌ All MongoDB connection attempts failed")
+                raise e
