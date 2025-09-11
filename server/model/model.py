@@ -81,137 +81,24 @@ class Call(Document):
 
 
 async def connect_to_db():
-    max_retries = 3
-    retry_delay = 2  # seconds
-    connection_timeout = 60  # 60 seconds total timeout for entire connection process
-    
-    for attempt in range(max_retries):
-        try:
-            logger.info(f"🔄 MongoDB connection attempt {attempt + 1}/{max_retries}")
-            
-            if not MONGO_URI:
-                raise ValueError("MONGO_URI is not set in environment variables")
+    try:
 
-            # Wrap the entire connection process with a timeout
-            await asyncio.wait_for(
-                _establish_connection(),
-                timeout=connection_timeout
-            )
-            
-            logger.info("✅ Successfully connected to MongoDB")
-            return  # Success, exit the retry loop
-            
-        except asyncio.TimeoutError:
-            logger.error(f"❌ MongoDB connection timeout after {connection_timeout}s on attempt {attempt + 1}/{max_retries}")
-            if attempt < max_retries - 1:
-                logger.info(f"⏳ Retrying in {retry_delay} seconds...")
-                await asyncio.sleep(retry_delay)
-                retry_delay *= 2  # Exponential backoff
-            else:
-                raise Exception(f"MongoDB connection timeout after {connection_timeout}s and {max_retries} attempts")
-        except Exception as e:
-            logger.error(f"❌ MongoDB connection attempt {attempt + 1}/{max_retries} failed: {str(e)}")
-            
-            if attempt < max_retries - 1:
-                logger.info(f"⏳ Retrying in {retry_delay} seconds...")
-                await asyncio.sleep(retry_delay)
-                retry_delay *= 2  # Exponential backoff
-            else:
-                logger.error("❌ All MongoDB connection attempts failed")
-                raise e
+        if not MONGO_URI:
+            raise ValueError("MONGO_URI is not set in environment variables")
 
-async def _establish_connection():
-    """Internal function to establish MongoDB connection with detailed configuration"""
-    logger.info(f"�� Establishing MongoDB connection to: {MONGO_URI}")
-    
-    # Configure MongoDB client with Atlas-specific settings for replica sets
-    client = AsyncMongoClient(
-        MONGO_URI,
-        # Timeout settings
-        serverSelectionTimeoutMS=30000,  # 30 seconds for Atlas replica sets
-        connectTimeoutMS=30000,         # 30 seconds connection timeout
-        socketTimeoutMS=30000,          # 30 seconds socket timeout
-        
-        # Connection pool settings
-        maxPoolSize=50,                 # Maximum connections in pool
-        minPoolSize=5,                  # Minimum connections in pool
-        maxIdleTimeMS=30000,            # Close idle connections after 30s
-        
-        # Retry settings
-        retryWrites=True,               # Enable retryable writes
-        retryReads=True,                # Enable retryable reads
-        
-        # Heartbeat and monitoring
-        heartbeatFrequencyMS=10000,     # Send heartbeat every 10 seconds
-        
-        # Atlas-specific settings
-        directConnection=False,         # Allow replica set discovery
-        readPreference='primaryPreferred',  # Prefer primary, fallback to secondary
-        
-        # SSL/TLS settings for Atlas
-        tls=True,                       # Enable TLS for Atlas
-        tlsAllowInvalidCertificates=False,  # Validate certificates
-        tlsAllowInvalidHostnames=False,     # Validate hostnames
-    )
-    
-    # Test the connection with a ping
-    logger.info("🏓 Testing MongoDB connection with ping...")
-    await client.admin.command('ping')
-    logger.info("✅ MongoDB ping successful")
-    
-    # Initialize Beanie with the database
-    logger.info(f"📊 Initializing Beanie with database: {DB_NAME}")
-    database = client[DB_NAME]
-    await init_beanie(
-        database=database, 
-        document_models=[Batch, Call, PincodeData, KnowledgeBase]
-    )
-    
-    logger.info("✅ Beanie initialization successful")
-    """Internal function to establish MongoDB connection with detailed configuration"""
-    logger.info(f"�� Establishing MongoDB connection to: {MONGO_URI}")
-    
-    # Configure MongoDB client with Atlas-specific settings for replica sets
-    client = AsyncMongoClient(
-        MONGO_URI,
-        # Timeout settings
-        serverSelectionTimeoutMS=30000,  # 30 seconds for Atlas replica sets
-        connectTimeoutMS=30000,         # 30 seconds connection timeout
-        socketTimeoutMS=30000,          # 30 seconds socket timeout
-        
-        # Connection pool settings
-        maxPoolSize=50,                 # Maximum connections in pool
-        minPoolSize=5,                  # Minimum connections in pool
-        maxIdleTimeMS=30000,            # Close idle connections after 30s
-        
-        # Retry settings
-        retryWrites=True,               # Enable retryable writes
-        retryReads=True,                # Enable retryable reads
-        
-        # Heartbeat and monitoring
-        heartbeatFrequencyMS=10000,     # Send heartbeat every 10 seconds
-        
-        # Atlas-specific settings
-        directConnection=False,         # Allow replica set discovery
-        readPreference='primaryPreferred',  # Prefer primary, fallback to secondary
-        
-        # SSL/TLS settings for Atlas
-        tls=True,                       # Enable TLS for Atlas
-        tlsAllowInvalidCertificates=False,  # Validate certificates
-        tlsAllowInvalidHostnames=False,     # Validate hostnames
-    )
-    
-    # Test the connection with a ping
-    logger.info("🏓 Testing MongoDB connection with ping...")
-    await client.admin.command('ping')
-    logger.info("✅ MongoDB ping successful")
-    
-    # Initialize Beanie with the database
-    logger.info(f"📊 Initializing Beanie with database: {DB_NAME}")
-    database = client[DB_NAME]
-    await init_beanie(
-        database=database, 
-        document_models=[Batch, Call, PincodeData, KnowledgeBase]
-    )
-    
-    logger.info("✅ Beanie initialization successful")
+
+
+        client = AsyncMongoClient(
+            MONGO_URI,
+        )
+        await client.admin.command("ping")
+        database = client[DB_NAME]
+        await init_beanie(
+            database=database, document_models=[Batch, Call, PincodeData, KnowledgeBase]
+        )
+
+        logger.info("✅ Successfully connected to MongoDB")
+    except Exception as e:
+
+        logger.error("All MongoDB connection attempts failed", str(e))
+        raise e
