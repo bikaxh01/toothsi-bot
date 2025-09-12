@@ -359,7 +359,7 @@ async def redial_call(call_id: str):
                 "status": "success",
                 "message": "Call redialed successfully",
                 "call_id": call_id,
-                "vapi_call_id": vapi_call_id,
+                "call_id": vapi_call_id,
             }
         else:
             logger.error(f"❌ Redial failed for call: {call_id}")
