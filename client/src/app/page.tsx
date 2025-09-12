@@ -110,7 +110,7 @@ export default function Home() {
       console.log("Redial response:", response.data);
       
       // Show success message (you could add a toast notification here)
-      alert(`Call redialed successfully! New call ID: ${response.data.vapi_call_id}`);
+      alert(`Call redialed successfully! New call ID: ${response.data.call_id}`);
       
       // Refresh the call details to show updated status
       if (selectedBatchId) {
