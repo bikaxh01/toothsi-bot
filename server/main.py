@@ -256,7 +256,7 @@ async def get_calls_by_batch(batch_id: str):
                     "email": call.user.email,
                     "phone": call.user.phone,
                 },
-                "vapi_call_id": call.vapi_call_id,
+                "call_id": call.vapi_call_id,
                 "call_result": call.call_result.dict() if call.call_result else None,
                 "created_at": call.created_at.isoformat(),
                 "updated_at": call.updated_at.isoformat(),
