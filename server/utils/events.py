@@ -5,6 +5,25 @@ from bson import ObjectId
 from datetime import datetime
 from utils.vapi_client import VAPIClient
 from utils.analyst import analyze_transcript
+import os
+
+# Environment variables
+CUSTOM_DOMAIN = os.getenv("BASE_URL", "https://your-domain.com")
+VAPI_STORAGE_DOMAIN = "https://storage.vapi.ai"
+
+def replace_vapi_domain_with_custom(url: str) -> str:
+    """
+    Replace VAPI storage domain with custom domain in recording URLs
+    """
+    if not url:
+        return url
+    
+    if url.startswith(VAPI_STORAGE_DOMAIN):
+        # Replace the VAPI domain with custom domain
+        path = url.replace(VAPI_STORAGE_DOMAIN, "")
+        return f"{CUSTOM_DOMAIN}{path}"
+    
+    return url
 
 
 async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -21,8 +40,14 @@ async def handle_call_completion(webhook_data: Dict[str, Any]) -> Dict[str, Any]
         # Extract essential artifact information
         stereo_recording_url = artifact_data.get("stereoRecordingUrl")
         
-        
-        logger.info(f"🎵 Stereo Recording URL: {stereo_recording_url}")
+        # Replace VAPI domain with custom domain
+        if stereo_recording_url:
+            original_url = stereo_recording_url
+            stereo_recording_url = replace_vapi_domain_with_custom(stereo_recording_url)
+            logger.info(f"🔄 Domain replacement - Original: {original_url}")
+            logger.info(f"🎵 Custom Recording URL: {stereo_recording_url}")
+        else:
+            logger.info(f"🎵 Stereo Recording URL: {stereo_recording_url}")
         
         
        

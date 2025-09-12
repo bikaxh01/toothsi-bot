@@ -14,7 +14,26 @@ from datetime import datetime
 
 from utils.tools import handle_tool_call, get_near_by_clinic_data
 from fastapi.middleware.cors import CORSMiddleware
+import httpx
+from fastapi import Response
 
+# Environment variables
+CUSTOM_DOMAIN = os.getenv("BASE_URL", "https://your-domain.com")
+VAPI_STORAGE_DOMAIN = "https://storage.vapi.ai"
+
+def replace_vapi_domain_with_custom(url: str) -> str:
+    """
+    Replace VAPI storage domain with custom domain in recording URLs
+    """
+    if not url:
+        return url
+    
+    if url.startswith(VAPI_STORAGE_DOMAIN):
+        # Replace the VAPI domain with custom domain
+        path = url.replace(VAPI_STORAGE_DOMAIN, "")
+        return f"{CUSTOM_DOMAIN}{path}"
+    
+    return url
 
 app = FastAPI()
 app.add_middleware(
@@ -363,6 +382,23 @@ async def redial_call(call_id: str):
 
         logger.error(f"📍 Full traceback: {traceback.format_exc()}")
         raise HTTPException(status_code=500, detail=f"Error redialing call: {str(e)}")
+
+
+
+@app.get("/media/{path:path}")
+async def proxy_media(path: str):
+    # Use VAPI storage domain for proxying, but serve through custom domain
+    url = f"{VAPI_STORAGE_DOMAIN}/{path}"
+    logger.info(f"🔍 Proxying media: {url}")
+    async with httpx.AsyncClient() as client:
+        r = await client.get(url, headers={"Referer": f"{VAPI_STORAGE_DOMAIN}/"})
+    
+    # Pass through the original content with headers
+    return Response(
+        content=r.content,
+        media_type=r.headers.get("content-type")
+    )
+
 
 
 @app.post("/vapi/tools")
