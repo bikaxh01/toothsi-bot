@@ -19,9 +19,9 @@ def replace_vapi_domain_with_custom(url: str) -> str:
         return url
     
     if url.startswith(VAPI_STORAGE_DOMAIN):
-        # Replace the VAPI domain with custom domain
+        # Replace the VAPI domain with custom domain and add /media endpoint
         path = url.replace(VAPI_STORAGE_DOMAIN, "")
-        return f"{CUSTOM_DOMAIN}{path}"
+        return f"{CUSTOM_DOMAIN}/media{path}"
     
     return url
 

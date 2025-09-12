@@ -21,19 +21,6 @@ from fastapi import Response
 CUSTOM_DOMAIN = os.getenv("BASE_URL", "https://your-domain.com")
 VAPI_STORAGE_DOMAIN = "https://storage.vapi.ai"
 
-def replace_vapi_domain_with_custom(url: str) -> str:
-    """
-    Replace VAPI storage domain with custom domain in recording URLs
-    """
-    if not url:
-        return url
-    
-    if url.startswith(VAPI_STORAGE_DOMAIN):
-        # Replace the VAPI domain with custom domain
-        path = url.replace(VAPI_STORAGE_DOMAIN, "")
-        return f"{CUSTOM_DOMAIN}{path}"
-    
-    return url
 
 app = FastAPI()
 app.add_middleware(
