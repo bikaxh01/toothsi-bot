@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, HTTPException, Request, BackgroundTasks
+from fastapi import FastAPI, UploadFile, File, HTTPException, Request, BackgroundTasks, Query
 from model.model import connect_to_db, close_db_connection, User
 import uvicorn
 from model.model import Batch, User, Call, CallStatus
@@ -20,6 +20,8 @@ from fastapi import Response
 # Environment variables
 CUSTOM_DOMAIN = os.getenv("BASE_URL", "https://your-domain.com")
 VAPI_STORAGE_DOMAIN = "https://storage.vapi.ai"
+EN_HI_ASSISTANT_ID = os.getenv("EN_HI_ASSISTANT_ID")
+TAMIL_ASSISTANT_ID = os.getenv("TAMIL_ASSISTANT_ID")
 
 
 app = FastAPI()
@@ -66,7 +68,7 @@ async def root():
 
 
 @app.post("/upload")
-async def upload_file(file: UploadFile = File(...)):
+async def upload_file(file: UploadFile = File(...), assistant_code: str = Query(None)):
     """
     Upload Excel file locally and extract user data
     """
@@ -111,12 +113,33 @@ async def upload_file(file: UploadFile = File(...)):
         # Since batch_id is stored as DBRef, we need to query using the batch object
         calls_with_ids = await Call.find(Call.batch_id == str(batch.id)).to_list()
         logger.info(f"🔍 Found {len(calls_with_ids)} calls for batch {batch.id}")
+        
+        # Select assistant ID based on assistant_code
+        assistant_id = None
+        if assistant_code:
+            if assistant_code.lower() == "en-hi":
+                assistant_id = EN_HI_ASSISTANT_ID
+                logger.info(f"🌐 Selected EN-HI assistant: {assistant_id}")
+            elif assistant_code.lower() == "tamil":
+                assistant_id = TAMIL_ASSISTANT_ID
+                logger.info(f"🌐 Selected Tamil assistant: {assistant_id}")
+            else:
+                logger.warning(f"⚠️ Unknown assistant_code: {assistant_code}. No assistant will be used.")
+        else:
+            logger.warning("⚠️ No assistant_code provided. No assistant will be used.")
+        
+        if not assistant_id:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"No valid assistant ID found for assistant_code: {assistant_code}. Please provide 'en-hi' or 'tamil'."
+            )
+        
         call_executor = CallExecutor(vapi_client=VAPIClient())
         responses = []
 
         # initiate all calls
         for call in calls_with_ids[:10]:
-            res = await call_executor.execute_call(call_data=call)
+            res = await call_executor.execute_call(call_data=call, assistant_id=assistant_id)
             responses.append(res)
 
         return {
@@ -264,7 +287,7 @@ async def get_calls_by_batch(batch_id: str):
 
 
 @app.post("/calls/{call_id}/redial")
-async def redial_call(call_id: str):
+async def redial_call(call_id: str, assistant_code: str = Query(None)):
     """
     Redial a call by call ID
     - Clears existing call result
@@ -318,12 +341,32 @@ async def redial_call(call_id: str):
 
         logger.info(f"✅ Cleared call result and set status to redialed")
 
+        # Select assistant ID based on assistant_code
+        assistant_id = None
+        if assistant_code:
+            if assistant_code.lower() == "en-hi":
+                assistant_id = EN_HI_ASSISTANT_ID
+                logger.info(f"🌐 Selected EN-HI assistant: {assistant_id}")
+            elif assistant_code.lower() == "tamil":
+                assistant_id = TAMIL_ASSISTANT_ID
+                logger.info(f"🌐 Selected Tamil assistant: {assistant_id}")
+            else:
+                logger.warning(f"⚠️ Unknown assistant_code: {assistant_code}. No assistant will be used.")
+        else:
+            logger.warning("⚠️ No assistant_code provided. No assistant will be used.")
+        
+        if not assistant_id:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"No valid assistant ID found for assistant_code: {assistant_code}. Please provide 'en-hi' or 'tamil'."
+            )
+
         # Execute the call using CallExecutor
         logger.info(f"🚀 Executing redial for call: {call_id}")
         call_executor = CallExecutor(vapi_client=VAPIClient())
 
         success, vapi_call_id, error_message = await call_executor.execute_call(
-            call_record
+            call_record, assistant_id=assistant_id
         )
 
         # Update the call with the new vapi_call_id if successful

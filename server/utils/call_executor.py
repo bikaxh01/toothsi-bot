@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Get assistant ID from environment variables
-ASSISTANT_ID = os.getenv("ASSISTANT_ID")
+# ASSISTANT_ID = os.getenv("ASSISTANT_ID")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
 
@@ -30,7 +30,7 @@ class CallExecutor:
         self.vapi_client = vapi_client
 
     async def execute_call(
-        self, call_data: Dict[str, Any]
+        self, call_data: Dict[str, Any], assistant_id: str
     ) -> Tuple[bool, Optional[str], Optional[str]]:
         """
         Execute a VAPI call for the given call data using standardized assistants
@@ -58,7 +58,7 @@ class CallExecutor:
 
             # Step 1: Get assistant ID from customer data
             logger.info(f"📋 [Call {call_id}] Step 1: Selecting assistant...")
-            assistant_id = ASSISTANT_ID
+            
             phone_number_id = PHONE_NUMBER_ID
             if not assistant_id:
                 error_msg = "No assistant ID found for customer"

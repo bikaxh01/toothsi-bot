@@ -6,7 +6,6 @@ import { AuthDialog } from "@/components/authDialog";
 import { useAuth } from "@/hooks/useAuth";
 import axios from "axios";
 
-
 // Columns for batches table
 const batchesColumns = [
   {
@@ -34,7 +33,9 @@ const batchesColumns = [
 
 export default function Home() {
   const { isAuthenticated, isLoading, authenticate, logout } = useAuth();
-  const [activeTab, setActiveTab] = useState<"upload" | "files" | "details">("upload");
+  const [activeTab, setActiveTab] = useState<"upload" | "files" | "details">(
+    "upload"
+  );
   const [uploadStatus, setUploadStatus] = useState<
     "idle" | "uploading" | "success" | "error"
   >("idle");
@@ -45,6 +46,7 @@ export default function Home() {
   const [isPolling, setIsPolling] = useState(false);
   const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const [redialingCalls, setRedialingCalls] = useState<Set<string>>(new Set());
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("en-hi");
 
   // Function to fetch batches from /batches endpoint
   const fetchBatches = useCallback(async () => {
@@ -64,15 +66,17 @@ export default function Home() {
     try {
       const serverBaseUrl =
         process.env.NEXT_PUBLIC_SERVER_BASE_URL || "http://localhost:3001";
-      const response = await axios.get(`${serverBaseUrl}/calls/batch/${batchId}`);
-      
+      const response = await axios.get(
+        `${serverBaseUrl}/calls/batch/${batchId}`
+      );
+
       // Transform the data to match table structure with new fields
       const transformedData = response.data.calls.map((call: any) => ({
         id: call.id,
         batch_id: call.batch_id,
-        name: call.user?.name || 'N/A',
-        email: call.user?.email || 'N/A',
-        phone: call.user?.phone || 'N/A',
+        name: call.user?.name || "N/A",
+        email: call.user?.email || "N/A",
+        phone: call.user?.phone || "N/A",
         status: call.status,
         created_at: call.created_at,
         updated_at: call.updated_at,
@@ -80,9 +84,9 @@ export default function Home() {
         transcript: call.call_result?.transcript || null,
         quality_score: call.call_result?.quality_score || null,
         customer_intent: call.call_result?.customer_intent || null,
-        recording_url: call.call_result?.recording_url || null
+        recording_url: call.call_result?.recording_url || null,
       }));
-      
+
       setCallDetailsData(transformedData);
       console.log("Updated call details:", transformedData);
     } catch (error) {
@@ -91,42 +95,49 @@ export default function Home() {
   }, []);
 
   // Function to redial a call
-  const redialCall = useCallback(async (callId: string) => {
-    console.log("Redialing call with ID:", callId);
-    
-    if (!callId) {
-      console.error("No call ID provided for redial");
-      alert("Error: No call ID found. Please refresh and try again.");
-      return;
-    }
-    
-    try {
-      setRedialingCalls(prev => new Set(prev).add(callId));
-      
-      const serverBaseUrl =
-        process.env.NEXT_PUBLIC_SERVER_BASE_URL || "http://localhost:3001";
-      const response = await axios.post(`${serverBaseUrl}/calls/${callId}/redial`);
-      
-      console.log("Redial response:", response.data);
-      
-      // Show success message (you could add a toast notification here)
-      alert(`Call redialed successfully! New call ID: ${response.data.call_id}`);
-      
-      // Refresh the call details to show updated status
-      if (selectedBatchId) {
-        fetchCallDetails(selectedBatchId);
+  const redialCall = useCallback(
+    async (callId: string) => {
+      console.log("Redialing call with ID:", callId);
+
+      if (!callId) {
+        console.error("No call ID provided for redial");
+        alert("Error: No call ID found. Please refresh and try again.");
+        return;
       }
-    } catch (error) {
-      console.error("Error redialing call:", error);
-      alert("Failed to redial call. Please try again.");
-    } finally {
-      setRedialingCalls(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(callId);
-        return newSet;
-      });
-    }
-  }, [selectedBatchId, fetchCallDetails]);
+
+      try {
+        setRedialingCalls((prev) => new Set(prev).add(callId));
+
+         const serverBaseUrl =
+           process.env.NEXT_PUBLIC_SERVER_BASE_URL || "http://localhost:3001";
+         const response = await axios.post(
+           `${serverBaseUrl}/calls/${callId}/redial?assistant_code=${selectedLanguage}`
+         );
+
+        console.log("Redial response:", response.data);
+
+        // Show success message (you could add a toast notification here)
+        alert(
+          `Call redialed successfully! New call ID: ${response.data.call_id}`
+        );
+
+        // Refresh the call details to show updated status
+        if (selectedBatchId) {
+          fetchCallDetails(selectedBatchId);
+        }
+      } catch (error) {
+        console.error("Error redialing call:", error);
+        alert("Failed to redial call. Please try again.");
+      } finally {
+        setRedialingCalls((prev) => {
+          const newSet = new Set(prev);
+          newSet.delete(callId);
+          return newSet;
+        });
+      }
+     },
+     [selectedBatchId, fetchCallDetails, selectedLanguage]
+   );
 
   // Columns for call details table
   const callDetailsColumns = [
@@ -146,13 +157,15 @@ export default function Home() {
       accessorKey: "status",
       header: "Status",
       cell: ({ row }: { row: any }) => (
-        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-          row.getValue("status") === "initiated" 
-            ? "bg-blue-100 text-blue-800" 
-            : row.getValue("status") === "completed"
-            ? "bg-green-100 text-green-800"
-            : "bg-gray-100 text-gray-800"
-        }`}>
+        <span
+          className={`px-2 py-1 rounded-full text-xs font-medium ${
+            row.getValue("status") === "initiated"
+              ? "bg-blue-100 text-blue-800"
+              : row.getValue("status") === "completed"
+              ? "bg-green-100 text-green-800"
+              : "bg-gray-100 text-gray-800"
+          }`}
+        >
           {row.getValue("status")}
         </span>
       ),
@@ -179,11 +192,11 @@ export default function Home() {
       cell: ({ row }: { row: any }) => {
         const callId = row.original.id;
         const isRedialing = redialingCalls.has(callId);
-        
+
         // Debug logging
         console.log("Row data:", row.original);
         console.log("Call ID:", callId);
-        
+
         return (
           <button
             onClick={(e) => {
@@ -212,20 +225,23 @@ export default function Home() {
   ];
 
   // Start polling function
-  const startPolling = useCallback((batchId: string) => {
-    if (pollingIntervalRef.current) {
-      clearInterval(pollingIntervalRef.current);
-    }
-    
-    setIsPolling(true);
-    // Fetch immediately
-    fetchCallDetails(batchId);
-    
-    // Then poll every 30 seconds
-    pollingIntervalRef.current = setInterval(() => {
+  const startPolling = useCallback(
+    (batchId: string) => {
+      if (pollingIntervalRef.current) {
+        clearInterval(pollingIntervalRef.current);
+      }
+
+      setIsPolling(true);
+      // Fetch immediately
       fetchCallDetails(batchId);
-    }, 30000);
-  }, [fetchCallDetails]);
+
+      // Then poll every 30 seconds
+      pollingIntervalRef.current = setInterval(() => {
+        fetchCallDetails(batchId);
+      }, 30000);
+    },
+    [fetchCallDetails]
+  );
 
   // Stop polling function
   const stopPolling = useCallback(() => {
@@ -245,61 +261,86 @@ export default function Home() {
     };
   }, []);
 
+  // Initialize language from localStorage
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("selectedLanguage");
+    if (savedLanguage) {
+      setSelectedLanguage(savedLanguage);
+    }
+  }, []);
+
+  // Handle language change
+  const handleLanguageChange = (language: string) => {
+    setSelectedLanguage(language);
+    localStorage.setItem("selectedLanguage", language);
+  };
+
   // Fetch batches when component mounts
   useEffect(() => {
     fetchBatches();
   }, [fetchBatches]);
 
-  const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    if (acceptedFiles.length === 0) return;
+  const onDrop = useCallback(
+    async (acceptedFiles: File[]) => {
+      if (acceptedFiles.length === 0) return;
 
-    const file = acceptedFiles[0];
-    setUploadStatus("uploading");
-    setUploadMessage("");
+      const file = acceptedFiles[0];
+      setUploadStatus("uploading");
+      setUploadMessage("");
 
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
 
-      const serverBaseUrl =
-        process.env.NEXT_PUBLIC_SERVER_BASE_URL || "http://localhost:3001";
-      const response = await axios.post(`${serverBaseUrl}/upload`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+         const serverBaseUrl =
+           process.env.NEXT_PUBLIC_SERVER_BASE_URL || "http://localhost:3001";
+         const response = await axios.post(
+           `${serverBaseUrl}/upload?assistant_code=${selectedLanguage}`,
+           formData,
+           {
+             headers: {
+               "Content-Type": "multipart/form-data",
+             },
+           }
+         );
 
-      setUploadStatus("success");
-      setUploadMessage("File uploaded successfully!");
-      console.log("Upload response:", response.data);
-      
-      // Extract batch_id from the response
-      const batchId = response.data.batch_id || response.data.calls?.[0]?.batch_id;
-      if (batchId) {
-        setSelectedBatchId(batchId);
-        // Refresh batches list
-        fetchBatches();
-        // Switch to details tab and start polling
-        setActiveTab("details");
-        startPolling(batchId);
-      } else {
-        console.error("No batch_id found in upload response");
+        setUploadStatus("success");
+        setUploadMessage("File uploaded successfully!");
+        console.log("Upload response:", response.data);
+
+        // Extract batch_id from the response
+        const batchId =
+          response.data.batch_id || response.data.calls?.[0]?.batch_id;
+        if (batchId) {
+          setSelectedBatchId(batchId);
+          // Refresh batches list
+          fetchBatches();
+          // Switch to details tab and start polling
+          setActiveTab("details");
+          startPolling(batchId);
+        } else {
+          console.error("No batch_id found in upload response");
+        }
+      } catch (error) {
+        setUploadStatus("error");
+        setUploadMessage("Upload failed. Please try again.");
+        console.error("Upload error:", error);
+        // Stop any existing polling
+        stopPolling();
       }
-    } catch (error) {
-      setUploadStatus("error");
-      setUploadMessage("Upload failed. Please try again.");
-      console.error("Upload error:", error);
-      // Stop any existing polling
-      stopPolling();
-    }
-  }, [startPolling, stopPolling, fetchBatches]);
+     },
+     [startPolling, stopPolling, fetchBatches, selectedLanguage]
+   );
 
   // Handle batch selection from files tab
-  const handleBatchSelect = useCallback((batchId: string) => {
-    setSelectedBatchId(batchId);
-    setActiveTab("details");
-    startPolling(batchId);
-  }, [startPolling]);
+  const handleBatchSelect = useCallback(
+    (batchId: string) => {
+      setSelectedBatchId(batchId);
+      setActiveTab("details");
+      startPolling(batchId);
+    },
+    [startPolling]
+  );
 
   // Custom batches table with clickable rows
   const BatchesTable = ({ data }: { data: any[] }) => {
@@ -309,7 +350,10 @@ export default function Home() {
           <thead className="bg-gray-50">
             <tr>
               {batchesColumns.map((column) => (
-                <th key={column.accessorKey} className="px-4 py-3 text-left text-sm font-medium text-gray-900">
+                <th
+                  key={column.accessorKey}
+                  className="px-4 py-3 text-left text-sm font-medium text-gray-900"
+                >
                   {column.header}
                 </th>
               ))}
@@ -324,15 +368,25 @@ export default function Home() {
                   onClick={() => handleBatchSelect(batch.id)}
                 >
                   {batchesColumns.map((column) => (
-                    <td key={column.accessorKey} className="px-4 py-3 text-sm text-gray-900">
-                      {column.cell ? column.cell({ row: { getValue: (key: string) => batch[key] } }) : batch[column.accessorKey]}
+                    <td
+                      key={column.accessorKey}
+                      className="px-4 py-3 text-sm text-gray-900"
+                    >
+                      {column.cell
+                        ? column.cell({
+                            row: { getValue: (key: string) => batch[key] },
+                          })
+                        : batch[column.accessorKey]}
                     </td>
                   ))}
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan={batchesColumns.length} className="h-24 text-center text-gray-500">
+                <td
+                  colSpan={batchesColumns.length}
+                  className="h-24 text-center text-gray-500"
+                >
                   No batches found.
                 </td>
               </tr>
@@ -367,8 +421,12 @@ export default function Home() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Toothsi Dashboard</h1>
-              <p className="text-gray-600 mt-2">Upload files, view batches, and monitor call details</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Toothsi Dashboard
+              </h1>
+              <p className="text-gray-600 mt-2">
+                Upload files, view batches, and monitor call details
+              </p>
             </div>
             <button
               onClick={logout}
@@ -382,24 +440,37 @@ export default function Home() {
         {/* Tabs */}
         <div className="mb-6">
           <div className="border-b border-gray-200">
-            <nav className="-mb-px flex space-x-8">
-              {[
-                { id: "upload", label: "Upload" },
-                { id: "files", label: "Files" },
-                { id: "details", label: "Details" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`py-2 px-1 border-b-2 font-medium text-sm ${
-                    activeTab === tab.id
-                      ? "border-blue-500 text-blue-600"
-                      : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                  }`}
+            <nav className="-mb-px flex space-x-8 items-center justify-between">
+              <div className="flex space-x-8">
+                {[
+                  { id: "upload", label: "Upload" },
+                  { id: "files", label: "Files" },
+                  { id: "details", label: "Details" },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as any)}
+                    className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                      activeTab === tab.id
+                        ? "border-blue-500 text-blue-600"
+                        : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+              <div className="relative">
+                <select
+                  value={selectedLanguage}
+                  onChange={(e) => handleLanguageChange(e.target.value)}
+                  className="px-3 py-1 text-sm border border-gray-300 rounded-md bg-white hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  {tab.label}
-                </button>
-              ))}
+                  <option value="en-hi">En-Hi</option>
+                  <option value="tamil">Tamil</option>
+                  <option value="en-hi-v2">En-Hi-V2</option>
+                </select>
+              </div>
             </nav>
           </div>
         </div>
@@ -438,7 +509,9 @@ export default function Home() {
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-semibold">
-                  Call Details {selectedBatchId && `(Batch: ${selectedBatchId.substring(0, 8)}...)`}
+                  Call Details{" "}
+                  {selectedBatchId &&
+                    `(Batch: ${selectedBatchId.substring(0, 8)}...)`}
                 </h2>
                 {isPolling && (
                   <div className="flex items-center gap-2 text-sm text-blue-600">
@@ -448,7 +521,10 @@ export default function Home() {
                 )}
               </div>
               {selectedBatchId ? (
-                <DataTable columns={callDetailsColumns} data={callDetailsData} />
+                <DataTable
+                  columns={callDetailsColumns}
+                  data={callDetailsData}
+                />
               ) : (
                 <div className="text-center py-12 text-gray-500">
                   <p>Select a batch from the Files tab to view call details</p>
