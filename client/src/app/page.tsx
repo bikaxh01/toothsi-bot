@@ -468,7 +468,7 @@ export default function Home() {
                 >
                   <option value="en-hi">En-Hi</option>
                   <option value="tamil">Tamil</option>
-                  <option value="en-hi-v2">En-Hi-V2</option>
+                  <option value="en-hi-v2" disabled>En-Hi-V2</option>
                 </select>
               </div>
             </nav>
