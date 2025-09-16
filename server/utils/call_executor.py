@@ -154,7 +154,7 @@ class CallExecutor:
             # Prepare payload for custom API
             payload = {
                 "name": name,
-                "phone": phone_number,
+                "phone_number": phone_number,
             }
 
             logger.info(f"📤 [Custom Call {call_id}] Sending payload: {payload}")
