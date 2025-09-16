@@ -22,6 +22,7 @@ CUSTOM_DOMAIN = os.getenv("BASE_URL", "https://your-domain.com")
 VAPI_STORAGE_DOMAIN = "https://storage.vapi.ai"
 EN_HI_ASSISTANT_ID = os.getenv("EN_HI_ASSISTANT_ID")
 TAMIL_ASSISTANT_ID = os.getenv("TAMIL_ASSISTANT_ID")
+CUSTOM_ASSISTANT_URL = os.getenv("CUSTOM_ASSISTANT_URL")
 
 
 app = FastAPI()
@@ -114,8 +115,9 @@ async def upload_file(file: UploadFile = File(...), assistant_code: str = Query(
         calls_with_ids = await Call.find(Call.batch_id == str(batch.id)).to_list()
         logger.info(f"🔍 Found {len(calls_with_ids)} calls for batch {batch.id}")
         
-        # Select assistant ID based on assistant_code
+        # Select assistant ID or custom URL based on assistant_code
         assistant_id = None
+        custom_url = None
         if assistant_code:
             if assistant_code.lower() == "en-hi":
                 assistant_id = EN_HI_ASSISTANT_ID
@@ -123,15 +125,18 @@ async def upload_file(file: UploadFile = File(...), assistant_code: str = Query(
             elif assistant_code.lower() == "tamil":
                 assistant_id = TAMIL_ASSISTANT_ID
                 logger.info(f"🌐 Selected Tamil assistant: {assistant_id}")
+            elif assistant_code.lower() == "custom":
+                custom_url = CUSTOM_ASSISTANT_URL
+                logger.info(f"🌐 Selected Custom URL: {custom_url}")
             else:
                 logger.warning(f"⚠️ Unknown assistant_code: {assistant_code}. No assistant will be used.")
         else:
             logger.warning("⚠️ No assistant_code provided. No assistant will be used.")
         
-        if not assistant_id:
+        if not assistant_id and not custom_url:
             raise HTTPException(
                 status_code=400, 
-                detail=f"No valid assistant ID found for assistant_code: {assistant_code}. Please provide 'en-hi' or 'tamil'."
+                detail=f"No valid assistant ID or custom URL found for assistant_code: {assistant_code}. Please provide 'en-hi', 'tamil', or 'custom'."
             )
         
         call_executor = CallExecutor(vapi_client=VAPIClient())
@@ -139,7 +144,12 @@ async def upload_file(file: UploadFile = File(...), assistant_code: str = Query(
 
         # initiate all calls
         for call in calls_with_ids[:10]:
-            res = await call_executor.execute_call(call_data=call, assistant_id=assistant_id)
+            if custom_url:
+                # Use custom call function
+                res = await call_executor.execute_custom_call(call_data=call, custom_url=custom_url)
+            else:
+                # Use regular VAPI call
+                res = await call_executor.execute_call(call_data=call, assistant_id=assistant_id)
             responses.append(res)
 
         return {
@@ -341,8 +351,9 @@ async def redial_call(call_id: str, assistant_code: str = Query(None)):
 
         logger.info(f"✅ Cleared call result and set status to redialed")
 
-        # Select assistant ID based on assistant_code
+        # Select assistant ID or custom URL based on assistant_code
         assistant_id = None
+        custom_url = None
         if assistant_code:
             if assistant_code.lower() == "en-hi":
                 assistant_id = EN_HI_ASSISTANT_ID
@@ -350,24 +361,34 @@ async def redial_call(call_id: str, assistant_code: str = Query(None)):
             elif assistant_code.lower() == "tamil":
                 assistant_id = TAMIL_ASSISTANT_ID
                 logger.info(f"🌐 Selected Tamil assistant: {assistant_id}")
+            elif assistant_code.lower() == "custom":
+                custom_url = CUSTOM_ASSISTANT_URL
+                logger.info(f"🌐 Selected Custom URL: {custom_url}")
             else:
                 logger.warning(f"⚠️ Unknown assistant_code: {assistant_code}. No assistant will be used.")
         else:
             logger.warning("⚠️ No assistant_code provided. No assistant will be used.")
         
-        if not assistant_id:
+        if not assistant_id and not custom_url:
             raise HTTPException(
                 status_code=400, 
-                detail=f"No valid assistant ID found for assistant_code: {assistant_code}. Please provide 'en-hi' or 'tamil'."
+                detail=f"No valid assistant ID or custom URL found for assistant_code: {assistant_code}. Please provide 'en-hi', 'tamil', or 'custom'."
             )
 
         # Execute the call using CallExecutor
         logger.info(f"🚀 Executing redial for call: {call_id}")
         call_executor = CallExecutor(vapi_client=VAPIClient())
 
-        success, vapi_call_id, error_message = await call_executor.execute_call(
-            call_record, assistant_id=assistant_id
-        )
+        if custom_url:
+            # Use custom call function
+            success, vapi_call_id, error_message = await call_executor.execute_custom_call(
+                call_record, custom_url=custom_url
+            )
+        else:
+            # Use regular VAPI call
+            success, vapi_call_id, error_message = await call_executor.execute_call(
+                call_record, assistant_id=assistant_id
+            )
 
         # Update the call with the new vapi_call_id if successful
         if success and vapi_call_id:
@@ -484,6 +505,142 @@ async def vapi_tools(request: Request):
         logger.error(f"❌ Error in VAPI tools handler: {e}")
         import traceback
 
+        logger.error(f"📍 Full traceback: {traceback.format_exc()}")
+        return {"status": "error", "message": str(e)}
+
+
+
+
+
+
+@app.post("/custom-assistant-webhook")
+async def custom_assistant_webhook(request: Request):
+    """Handle custom assistant webhook for call status updates"""
+    try:
+        # Log incoming webhook
+        headers = dict(request.headers)
+        client_ip = request.client.host if request.client else "unknown"
+        logger.info(f"📞 Custom Assistant Webhook received from {client_ip}")
+        logger.info(f"📋 Headers: {headers}")
+
+        # Parse webhook data
+        webhook_data = await request.json()
+        logger.info(f"📦 Webhook payload: {webhook_data}")
+
+        # Extract required fields
+        call_sid = webhook_data.get("call_sid")
+        status = webhook_data.get("status")
+        phone_number = webhook_data.get("phone_number")
+        name = webhook_data.get("name")
+        transcript = webhook_data.get("transcript", "")
+        recording_url = webhook_data.get("recording_url", "")
+        call_cost = webhook_data.get("call_cost", 0.0)
+        created_at = webhook_data.get("created_at")
+        updated_at = webhook_data.get("updated_at")
+
+        # Validate required fields
+        if not call_sid:
+            logger.error("❌ Missing call_sid in webhook payload")
+            raise HTTPException(status_code=400, detail="Missing call_sid")
+
+        if not status:
+            logger.error("❌ Missing status in webhook payload")
+            raise HTTPException(status_code=400, detail="Missing status")
+
+        logger.info(f"🔍 Processing webhook for call_sid: {call_sid}")
+        logger.info(f"📊 Status: {status}")
+        logger.info(f"📞 Phone: {phone_number}")
+        logger.info(f"👤 Name: {name}")
+
+        # Find call record by vapi_call_id (which stores call_sid for custom calls)
+        call_record = await Call.find_one(Call.vapi_call_id == call_sid)
+        
+        if not call_record:
+            logger.error(f"❌ Call record not found for call_sid: {call_sid}")
+            raise HTTPException(status_code=404, detail=f"Call record not found for call_sid: {call_sid}")
+
+        logger.info(f"✅ Found call record: {call_record.id}")
+
+        # Map custom status to CallStatus enum
+        status_mapping = {
+            "call_initiated": CallStatus.INITIATED,
+            "ringing": CallStatus.INITIATED,
+            "in_progress": CallStatus.IN_PROGRESS,
+            "active": CallStatus.ACTIVE,
+            "completed": CallStatus.COMPLETED,
+            "done": CallStatus.DONE,
+            "ended": CallStatus.ENDED,
+            "cancelled": CallStatus.CANCELLED,
+            "failed": CallStatus.FAILED,
+            "no_show": CallStatus.NO_SHOW,
+            "terminated": CallStatus.TERMINATED
+        }
+
+        mapped_status = status_mapping.get(status.lower(), CallStatus.COMPLETED)
+        logger.info(f"🔄 Mapped status: {status} -> {mapped_status}")
+
+        # Prepare call_result data
+        call_result_data = {
+            "transcript": transcript,
+            "recording_url": recording_url,
+            "created_at": datetime.utcnow(),
+            "updated_at": datetime.utcnow()
+        }
+
+        # Update call record
+        update_data = {
+            "status": mapped_status,
+            "call_result": call_result_data,
+            "updated_at": datetime.utcnow()
+        }
+
+        await call_record.update({"$set": update_data})
+        logger.success(f"✅ Updated call record {call_record.id} with status: {mapped_status}")
+
+        # Trigger analysis if transcript is available
+        if transcript and len(transcript.strip()) > 0:
+            logger.info(f"🔍 Triggering analysis for call {call_record.id}")
+            try:
+                from utils.analyst import analyze_transcript
+                analysis_result = analyze_transcript(transcript)
+                
+                # Update call_result with analysis
+                analysis_data = {
+                    "summary": analysis_result.summary,
+                    "quality_score": analysis_result.quality_score,
+                    "customer_intent": analysis_result.customer_intent,
+                    "updated_at": datetime.utcnow()
+                }
+                
+                # Merge with existing call_result
+                current_call_result = call_record.call_result.dict() if call_record.call_result else {}
+                current_call_result.update(analysis_data)
+                
+                await call_record.update({"$set": {"call_result": current_call_result}})
+                logger.success(f"✅ Analysis completed for call {call_record.id}")
+                logger.info(f"📊 Analysis summary: {analysis_result.summary}")
+                logger.info(f"📊 Quality score: {analysis_result.quality_score}")
+                logger.info(f"📊 Customer intent: {analysis_result.customer_intent}")
+                
+            except Exception as e:
+                logger.error(f"❌ Analysis failed for call {call_record.id}: {str(e)}")
+                # Don't fail the webhook if analysis fails
+        else:
+            logger.info(f"⚠️ No transcript available for analysis in call {call_record.id}")
+
+        return {
+            "status": "success",
+            "message": "Webhook processed successfully",
+            "call_id": str(call_record.id),
+            "call_sid": call_sid,
+            "updated_status": mapped_status
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"❌ Error processing custom assistant webhook: {e}")
+        import traceback
         logger.error(f"📍 Full traceback: {traceback.format_exc()}")
         return {"status": "error", "message": str(e)}
 
