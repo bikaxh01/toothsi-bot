@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { DataTable } from "@/components/dataTable";
 import { AuthDialog } from "@/components/authDialog";
 import { useAuth } from "@/hooks/useAuth";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import axios from "axios";
 
 // Columns for batches table
@@ -20,15 +21,15 @@ const batchesColumns = [
       return date.toLocaleDateString() + " " + date.toLocaleTimeString();
     },
   },
-  {
-    accessorKey: "id",
-    header: "Batch ID",
-    cell: ({ row }: { row: any }) => (
-      <span className="font-mono text-sm text-gray-600">
-        {row.getValue("id").substring(0, 8)}...
-      </span>
-    ),
-  },
+    {
+      accessorKey: "id",
+      header: "Batch ID",
+      cell: ({ row }: { row: any }) => (
+        <span className="font-mono text-sm text-gray-600 dark:text-gray-400">
+          {row.getValue("id").substring(0, 8)}...
+        </span>
+      ),
+    },
 ];
 
 export default function Home() {
@@ -160,10 +161,10 @@ export default function Home() {
         <span
           className={`px-2 py-1 rounded-full text-xs font-medium ${
             row.getValue("status") === "initiated"
-              ? "bg-blue-100 text-blue-800"
+              ? "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200"
               : row.getValue("status") === "completed"
-              ? "bg-green-100 text-green-800"
-              : "bg-gray-100 text-gray-800"
+              ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
+              : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
           }`}
         >
           {row.getValue("status")}
@@ -206,13 +207,13 @@ export default function Home() {
             disabled={isRedialing || !callId}
             className={`px-3 py-1 text-sm rounded-md transition-colors ${
               isRedialing || !callId
-                ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                ? "bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed"
                 : "bg-red-600 text-white hover:bg-red-700"
             }`}
           >
             {isRedialing ? (
               <div className="flex items-center gap-1">
-                <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400"></div>
+                <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-400 dark:border-gray-500"></div>
                 <span>Redialing...</span>
               </div>
             ) : (
@@ -345,14 +346,14 @@ export default function Home() {
   // Custom batches table with clickable rows
   const BatchesTable = ({ data }: { data: any[] }) => {
     return (
-      <div className="overflow-hidden rounded-md border">
+      <div className="overflow-hidden rounded-md border border-gray-200 dark:border-gray-700">
         <table className="w-full">
-          <thead className="bg-gray-50">
+          <thead className="bg-gray-50 dark:bg-gray-700">
             <tr>
               {batchesColumns.map((column) => (
                 <th
                   key={column.accessorKey}
-                  className="px-4 py-3 text-left text-sm font-medium text-gray-900"
+                  className="px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-gray-100"
                 >
                   {column.header}
                 </th>
@@ -364,13 +365,13 @@ export default function Home() {
               data.map((batch) => (
                 <tr
                   key={batch.id}
-                  className="cursor-pointer hover:bg-gray-50 transition-colors border-b"
+                  className="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border-b border-gray-200 dark:border-gray-600"
                   onClick={() => handleBatchSelect(batch.id)}
                 >
                   {batchesColumns.map((column) => (
                     <td
                       key={column.accessorKey}
-                      className="px-4 py-3 text-sm text-gray-900"
+                      className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100"
                     >
                       {column.cell
                         ? column.cell({
@@ -385,7 +386,7 @@ export default function Home() {
               <tr>
                 <td
                   colSpan={batchesColumns.length}
-                  className="h-24 text-center text-gray-500"
+                  className="h-24 text-center text-gray-500 dark:text-gray-400"
                 >
                   No batches found.
                 </td>
@@ -400,10 +401,10 @@ export default function Home() {
   // Show loading state while checking authentication
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-300">Loading...</p>
         </div>
       </div>
     );
@@ -415,31 +416,34 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                 Toothsi Dashboard
               </h1>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-600 dark:text-gray-300 mt-2">
                 Upload files, view batches, and monitor call details
               </p>
             </div>
-            <button
-              onClick={logout}
-              className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-sm"
-            >
-              Logout
-            </button>
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+              <button
+                onClick={logout}
+                className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-sm"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Tabs */}
         <div className="mb-6">
-          <div className="border-b border-gray-200">
+          <div className="border-b border-gray-200 dark:border-gray-700">
             <nav className="-mb-px flex space-x-8 items-center justify-between">
               <div className="flex space-x-8">
                 {[
@@ -452,8 +456,8 @@ export default function Home() {
                     onClick={() => setActiveTab(tab.id as any)}
                     className={`py-2 px-1 border-b-2 font-medium text-sm ${
                       activeTab === tab.id
-                        ? "border-blue-500 text-blue-600"
-                        : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                        ? "border-blue-500 text-blue-600 dark:text-blue-400"
+                        : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600"
                     }`}
                   >
                     {tab.label}
@@ -464,7 +468,7 @@ export default function Home() {
                 <select
                   value={selectedLanguage}
                   onChange={(e) => handleLanguageChange(e.target.value)}
-                  className="px-3 py-1 text-sm border border-gray-300 rounded-md bg-white hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 hover:border-gray-400 dark:hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="en-hi">En-Hi</option>
                   <option value="tamil">Tamil</option>
@@ -476,10 +480,10 @@ export default function Home() {
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white rounded-lg shadow-sm border">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
           {activeTab === "upload" && (
             <div className="p-8">
-              <h2 className="text-xl font-semibold mb-6">Upload File</h2>
+              <h2 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Upload File</h2>
               <div className="flex justify-center">
                 <MyDropzone
                   onDrop={onDrop}
@@ -493,7 +497,7 @@ export default function Home() {
           {activeTab === "files" && (
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-semibold">All Files</h2>
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white">All Files</h2>
                 <button
                   onClick={fetchBatches}
                   className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
@@ -508,13 +512,13 @@ export default function Home() {
           {activeTab === "details" && (
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-semibold">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
                   Call Details{" "}
                   {selectedBatchId &&
                     `(Batch: ${selectedBatchId.substring(0, 8)}...)`}
                 </h2>
                 {isPolling && (
-                  <div className="flex items-center gap-2 text-sm text-blue-600">
+                  <div className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400">
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
                     <span>Polling for updates...</span>
                   </div>
@@ -526,7 +530,7 @@ export default function Home() {
                   data={callDetailsData}
                 />
               ) : (
-                <div className="text-center py-12 text-gray-500">
+                <div className="text-center py-12 text-gray-500 dark:text-gray-400">
                   <p>Select a batch from the Files tab to view call details</p>
                 </div>
               )}

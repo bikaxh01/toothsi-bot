@@ -48,7 +48,7 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div className="overflow-hidden rounded-md border">
+    <div className="overflow-hidden rounded-md border border-gray-200 dark:border-gray-700">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -77,7 +77,7 @@ export function DataTable<TData, TValue>({
                 <React.Fragment key={row.id}>
                   <TableRow
                     data-state={row.getIsSelected() && "selected"}
-                    className="cursor-pointer hover:bg-gray-50 transition-colors"
+                    className="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                     onClick={() => toggleRowExpansion(row.id)}
                   >
                     {row.getVisibleCells().map((cell) => (
@@ -88,7 +88,7 @@ export function DataTable<TData, TValue>({
                     <TableCell className="w-8">
                       <div className="flex items-center justify-center">
                         <svg
-                          className={`w-4 h-4 transition-transform duration-200 ${
+                          className={`w-4 h-4 transition-transform duration-200 text-gray-600 dark:text-gray-400 ${
                             isExpanded ? 'rotate-180' : ''
                           }`}
                           fill="none"
@@ -117,7 +117,7 @@ export function DataTable<TData, TValue>({
             })
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length + 1} className="h-24 text-center">
+              <TableCell colSpan={columns.length + 1} className="h-24 text-center text-gray-500 dark:text-gray-400">
                 No results.
               </TableCell>
             </TableRow>

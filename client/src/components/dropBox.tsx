@@ -21,18 +21,18 @@ function MyDropzone({onDrop, uploadStatus, uploadMessage}: {onDrop: (acceptedFil
     <div className="w-full max-w-[340px] mx-auto">
       <div
         {...getRootProps()}
-        className={`border-2 border-dashed border-gray-300 rounded-2xl transition-colors duration-200 min-h-[320px] w-full flex flex-col items-center justify-center px-6 py-12 ${
+        className={`border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-2xl transition-colors duration-200 min-h-[320px] w-full flex flex-col items-center justify-center px-6 py-12 ${
           uploadStatus === 'uploading' 
-            ? 'cursor-not-allowed bg-gray-50' 
+            ? 'cursor-not-allowed bg-gray-50 dark:bg-gray-800' 
             : isDragActive 
-            ? 'bg-gray-100 cursor-pointer' 
-            : 'bg-white cursor-pointer'
+            ? 'bg-gray-100 dark:bg-gray-700 cursor-pointer' 
+            : 'bg-white dark:bg-gray-800 cursor-pointer'
         }`}
       >
         <input {...getInputProps()} />
         <div className="flex flex-col items-center gap-6">
           <div className={`rounded-full w-16 h-16 flex items-center justify-center mb-2 ${
-            uploadStatus === 'uploading' ? 'bg-blue-50' : 'bg-gray-50'
+            uploadStatus === 'uploading' ? 'bg-blue-50 dark:bg-blue-900' : 'bg-gray-50 dark:bg-gray-700'
           }`}>
             {uploadStatus === 'uploading' ? (
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -52,16 +52,16 @@ function MyDropzone({onDrop, uploadStatus, uploadMessage}: {onDrop: (acceptedFil
             )}
           </div>
           <span className={`text-base font-medium text-center leading-relaxed ${
-            uploadStatus === 'uploading' ? 'text-blue-600' : 
-            uploadStatus === 'success' ? 'text-green-600' :
-            uploadStatus === 'error' ? 'text-red-600' : 'text-gray-500'
+            uploadStatus === 'uploading' ? 'text-blue-600 dark:text-blue-400' : 
+            uploadStatus === 'success' ? 'text-green-600 dark:text-green-400' :
+            uploadStatus === 'error' ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-400'
           }`}>
             {uploadStatus === 'uploading' ? 'Uploading...' :
              uploadStatus === 'success' ? 'File uploaded successfully!' :
              uploadStatus === 'error' ? 'Upload failed' :
              'Drop Excel file or click\nhere to upload'}
           </span>
-          <span className="text-gray-400 text-sm text-center">
+          <span className="text-gray-400 dark:text-gray-500 text-sm text-center">
             Only .xls and .xlsx files allowed
           </span>
         </div>
@@ -71,17 +71,17 @@ function MyDropzone({onDrop, uploadStatus, uploadMessage}: {onDrop: (acceptedFil
       {uploadMessage && (
         <div className={`mt-4 p-3 rounded-lg ${
           uploadStatus === 'success' 
-            ? 'bg-green-50 border border-green-200' 
+            ? 'bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700' 
             : uploadStatus === 'error' 
-            ? 'bg-red-50 border border-red-200' 
-            : 'bg-blue-50 border border-blue-200'
+            ? 'bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700' 
+            : 'bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-700'
         }`}>
           <p className={`text-sm ${
             uploadStatus === 'success' 
-              ? 'text-green-600' 
+              ? 'text-green-600 dark:text-green-400' 
               : uploadStatus === 'error' 
-              ? 'text-red-600' 
-              : 'text-blue-600'
+              ? 'text-red-600 dark:text-red-400' 
+              : 'text-blue-600 dark:text-blue-400'
           }`}>
             {uploadMessage}
           </p>
@@ -90,8 +90,8 @@ function MyDropzone({onDrop, uploadStatus, uploadMessage}: {onDrop: (acceptedFil
 
       {/* File rejection errors */}
       {fileRejections.length > 0 && (
-        <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-red-600 text-sm">
+        <div className="mt-4 p-3 bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg">
+          <p className="text-red-600 dark:text-red-400 text-sm">
             {fileRejections[0].errors[0].code === 'file-invalid-type' 
               ? 'Please upload only .xls or .xlsx files'
               : fileRejections[0].errors[0].code === 'too-many-files'
