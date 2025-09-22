@@ -59,7 +59,9 @@ async def shutdown_db_client():
 async def root():
     try:
         # Group pincode data by city and store in KnowledgeBase
-        result = await get_near_by_clinic_data(pincode="500005")
+        from utils.tools import handle_vector_search_tool
+        result = await handle_vector_search_tool({"query": "can you provide customer support number?"})
+        # result = await get_near_by_clinic_data(city="Chennai",pincode="600001")
         return {"message": "Hello World", "result": result}
     except Exception as e:
         logger.error(f"Error in root endpoint: {str(e)}")

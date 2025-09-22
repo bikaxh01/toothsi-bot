@@ -1,6 +1,6 @@
 beanie
 fastapi[standard]
-pymongo
+
 python-dotenv
 loguru
 uvicorn
@@ -10,5 +10,5 @@ python-multipart
 httpx
 aiohttp
 litellm
-gradio
+beanie
 motor

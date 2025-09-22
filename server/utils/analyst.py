@@ -131,6 +131,13 @@ async def vector_search(query: str) -> List[KnowledgeBase]:
         },
         {"$project": {"_id": 0, "content": 1}},
     ]
-    response = await KnowledgeBase.aggregate(pipeline).to_list()
+    
+    # Use raw Motor client for aggregation
+    from model.model import get_database
+    db = get_database()
+    collection = db[KnowledgeBase.get_collection_name()]
+    
+    cursor = collection.aggregate(pipeline)
+    response = await cursor.to_list(length=None)
     logger.info(f"Vector search response 🔥🔥🔥🔥: {response}")
     return response

@@ -26,6 +26,7 @@ class Batch(Document):
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
 
+
 class KnowledgeBase(Document):
     content: str
     embedding: List[float]
