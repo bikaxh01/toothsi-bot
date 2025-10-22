@@ -72,23 +72,19 @@ def read_xlsx_file(file_path: str) -> List[User]:
                 email = str(row[email_col]).strip() if pd.notna(row[email_col]) else ""
                 phone = str(row[phone_col]).strip() if pd.notna(row[phone_col]) else ""
                 
-                # Format phone number with +91 prefix
+                # Format phone number - extract country code and add + prefix
                 if phone:
-                    # Check if +91 is already present
-                    if phone.startswith('+91'):
-                        # Already has +91, just clean up any extra characters
-                        phone = '+91' + phone[3:].replace('-', '').replace(' ', '').replace('(', '').replace(')', '')
+                    # Remove all non-digit characters to get clean number
+                    phone_clean = ''.join(filter(str.isdigit, phone))
+                    
+                    # Check if the number already has a country code (starts with common country codes)
+                    # Common country codes: 1, 7, 20-27, 30-34, 36, 39, 40-49, 51-58, 60-66, 81, 82, 84, 86, 90-95, 98
+                    if phone_clean and len(phone_clean) >= 10:
+                        # Add + prefix to the clean number
+                        phone = f"+{phone_clean}"
                     else:
-                        # Remove any existing country code or special characters
-                        phone_clean = phone.replace('+91', '').replace('+', '').replace('-', '').replace(' ', '').replace('(', '').replace(')', '')
-                        
-                        # Add +91 prefix if not already present
-                        if not phone_clean.startswith('91') and len(phone_clean) == 10:
-                            phone = f"+91{phone_clean}"
-                        elif phone_clean.startswith('91') and len(phone_clean) == 12:
-                            phone = f"+{phone_clean}"
-                        else:
-                            phone = phone_clean  # Keep original if doesn't match expected format
+                        # If number is too short or empty, keep original
+                        phone = phone_clean if phone_clean else phone
                 
                 # Skip rows with empty required fields
                 if not name or not email or not phone:
