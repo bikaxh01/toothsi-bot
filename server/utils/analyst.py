@@ -1,11 +1,9 @@
 from litellm import completion, embedding
 import os
 from pydantic import BaseModel
-from typing import Optional, List
+
 from loguru import logger
-from corpus import corpus
-from model.model import KnowledgeBase
-from pymongo.operations import SearchIndexModel
+
 
 TRANSCRIPT_ANALYSIS_PROMPT = """
 You are an AI assistant that analyzes phone call transcripts. Please analyze the following transcript and provide output in JSON format with the following fields:
@@ -89,55 +87,3 @@ def analyze_transcript(transcript: str) -> AnalystResult:
         return default_result
 
 
-def generate_embedding(text: str) -> List[float]:
-    """Generate embedding for text"""
-    response = embedding(
-        api_key=os.getenv("OPENAI_API_KEY"),
-        model="text-embedding-ada-002",
-        input=[text],
-    )
-    logger.info(f"Embedding generated for text: {text}")
-
-    return response.data[0]["embedding"]
-
-
-async def save_corpus():
-    final_corpus = []
-    for chunk in corpus:
-        knowledge_base = KnowledgeBase(
-            content=chunk["content"],
-            embedding=generate_embedding(chunk["content"]),
-        )
-        final_corpus.append(knowledge_base)
-    await KnowledgeBase.insert_many(final_corpus)
-    logger.info(f"Knowledge base saved")
-
-    return True
-
-
-async def vector_search(query: str) -> List[KnowledgeBase]:
-    """Vector search"""
-    query_embedding = generate_embedding(query)
-
-    pipeline = [
-        {
-            "$vectorSearch": {
-                "index": "vector_index",
-                "queryVector": query_embedding,
-                "path": "embedding",
-                "exact": True,
-                "limit": 2,
-            }
-        },
-        {"$project": {"_id": 0, "content": 1}},
-    ]
-    
-    # Use raw Motor client for aggregation
-    from model.model import get_database
-    db = get_database()
-    collection = db[KnowledgeBase.get_collection_name()]
-    
-    cursor = collection.aggregate(pipeline)
-    response = await cursor.to_list(length=None)
-    logger.info(f"Vector search response 🔥🔥🔥🔥: {response}")
-    return response

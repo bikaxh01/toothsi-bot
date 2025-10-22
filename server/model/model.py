@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from enum import Enum
 from beanie import Document, Link, init_beanie
 from dotenv import load_dotenv
-from urllib.parse import quote_plus
+
 
 load_dotenv()
 import os
@@ -15,7 +15,7 @@ from loguru import logger
 
 # Get MongoDB URI and database name from environment variables
 MONGO_URI = os.getenv("MONGO_URI")
-DB_NAME = os.getenv("DB_NAME", "toothsi")  # Default to "toothsi" if not set
+DB_NAME = os.getenv("DB_NAME", "Vairon")  # Default to "toothsi" if not set
 
 # Global client variable to store the Motor client
 client: Optional[AsyncIOMotorClient] = None
@@ -27,9 +27,6 @@ class Batch(Document):
 
 
 
-class KnowledgeBase(Document):
-    content: str
-    embedding: List[float]
 
 
 class CallStatus(str, Enum):
@@ -64,12 +61,6 @@ class CallResult(BaseModel):
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 
 
-class PincodeData(Document):
-    pincode: str
-    home_scan: str
-    clinic_1: Optional[str] = None
-    clinic_2: Optional[str] = None
-    city: str
 
 
 class Call(Document):
@@ -117,7 +108,7 @@ async def connect_to_db():
         # Initialize Beanie with the Motor database and document models
         await init_beanie(
             database=database, 
-            document_models=[Batch, Call, PincodeData, KnowledgeBase]
+            document_models=[Batch, Call, ]
         )
         
         logger.info("✅ Successfully connected to MongoDB using Motor")
