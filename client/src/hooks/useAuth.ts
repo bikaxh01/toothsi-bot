@@ -17,7 +17,7 @@ export function useAuth() {
     // Check localStorage for existing authentication
     const checkAuth = () => {
       try {
-        const authData = localStorage.getItem('toothsi_auth');
+        const authData = localStorage.getItem('auth_data');
         if (authData) {
           const parsed = JSON.parse(authData);
           if (parsed.authenticated && parsed.timestamp) {
@@ -50,7 +50,7 @@ export function useAuth() {
   };
 
   const logout = () => {
-    localStorage.removeItem('toothsi_auth');
+    localStorage.removeItem('auth_data');
     setAuthState({
       isAuthenticated: false,
       isLoading: false

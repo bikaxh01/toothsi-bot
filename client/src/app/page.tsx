@@ -47,7 +47,6 @@ export default function Home() {
   const [isPolling, setIsPolling] = useState(false);
   const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const [redialingCalls, setRedialingCalls] = useState<Set<string>>(new Set());
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("en-hi");
 
   // Function to fetch batches from /batches endpoint
   const fetchBatches = useCallback(async () => {
@@ -111,15 +110,15 @@ export default function Home() {
 
          const serverBaseUrl =
            process.env.NEXT_PUBLIC_SERVER_BASE_URL || "http://localhost:3001";
-         const response = await axios.post(
-           `${serverBaseUrl}/calls/${callId}/redial?assistant_code=${selectedLanguage}`
-         );
+        const response = await axios.post(
+          `${serverBaseUrl}/calls/${callId}/redial`
+        );
 
         console.log("Redial response:", response.data);
 
         // Show success message (you could add a toast notification here)
         alert(
-          `Call redialed successfully! New call ID: ${response.data.call_id}`
+          `Call redialed successfully! `
         );
 
         // Refresh the call details to show updated status
@@ -137,7 +136,7 @@ export default function Home() {
         });
       }
      },
-     [selectedBatchId, fetchCallDetails, selectedLanguage]
+     [selectedBatchId, fetchCallDetails]
    );
 
   // Columns for call details table
@@ -262,19 +261,6 @@ export default function Home() {
     };
   }, []);
 
-  // Initialize language from localStorage
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem("selectedLanguage");
-    if (savedLanguage) {
-      setSelectedLanguage(savedLanguage);
-    }
-  }, []);
-
-  // Handle language change
-  const handleLanguageChange = (language: string) => {
-    setSelectedLanguage(language);
-    localStorage.setItem("selectedLanguage", language);
-  };
 
   // Fetch batches when component mounts
   useEffect(() => {
@@ -295,9 +281,9 @@ export default function Home() {
 
          const serverBaseUrl =
            process.env.NEXT_PUBLIC_SERVER_BASE_URL || "http://localhost:3001";
-         const response = await axios.post(
-           `${serverBaseUrl}/upload?assistant_code=${selectedLanguage}`,
-           formData,
+        const response = await axios.post(
+          `${serverBaseUrl}/upload`,
+          formData,
            {
              headers: {
                "Content-Type": "multipart/form-data",
@@ -330,7 +316,7 @@ export default function Home() {
         stopPolling();
       }
      },
-     [startPolling, stopPolling, fetchBatches, selectedLanguage]
+     [startPolling, stopPolling, fetchBatches]
    );
 
   // Handle batch selection from files tab
@@ -423,7 +409,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                Toothsi Dashboard
+              Vairon Dashboard
               </h1>
               <p className="text-gray-600 dark:text-gray-300 mt-2">
                 Upload files, view batches, and monitor call details
@@ -444,7 +430,7 @@ export default function Home() {
         {/* Tabs */}
         <div className="mb-6">
           <div className="border-b border-gray-200 dark:border-gray-700">
-            <nav className="-mb-px flex space-x-8 items-center justify-between">
+            <nav className="-mb-px flex space-x-8">
               <div className="flex space-x-8">
                 {[
                   { id: "upload", label: "Upload" },
@@ -463,17 +449,6 @@ export default function Home() {
                     {tab.label}
                   </button>
                 ))}
-              </div>
-              <div className="relative">
-                <select
-                  value={selectedLanguage}
-                  onChange={(e) => handleLanguageChange(e.target.value)}
-                  className="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 hover:border-gray-400 dark:hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="en-hi">En-Hi</option>
-                  <option value="tamil">Tamil</option>
-                  <option value="custom" >En-Hi-V2</option>
-                </select>
               </div>
             </nav>
           </div>

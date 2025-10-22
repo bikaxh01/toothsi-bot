@@ -33,7 +33,7 @@ export function AuthDialog({ isOpen, onAuthenticated }: AuthDialogProps) {
       // Check credentials
       if (username === expectedUsername && password === expectedPassword) {
         // Store authentication in localStorage
-        localStorage.setItem('toothsi_auth', JSON.stringify({
+        localStorage.setItem('auth_data', JSON.stringify({
           authenticated: true,
           timestamp: Date.now()
         }));
