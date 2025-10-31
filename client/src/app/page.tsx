@@ -409,7 +409,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Vairon Dashboard
+              Noon Dashboard
               </h1>
               <p className="text-gray-600 dark:text-gray-300 mt-2">
                 Upload files, view batches, and monitor call details
