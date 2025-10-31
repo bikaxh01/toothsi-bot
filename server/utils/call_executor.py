@@ -73,7 +73,7 @@ class CallExecutor:
             customer = CallCustomer(
                 number=phone_number, name=name, numberE164CheckEnabled=True
             )
-            assistant_overrides = {"variableValues": {"name": name}}
+            assistant_overrides = {"variableValues": {"name": name, "current_date": datetime.utcnow().isoformat()}}
             call_request = VAPICallRequest(
                 assistantId=assistant_id,
                 phoneNumberId=phone_number_id,
