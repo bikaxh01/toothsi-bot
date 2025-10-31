@@ -16,16 +16,15 @@ You are an AI assistant that analyzes phone call transcripts. Please analyze the
 2. *quality_score*:  
    - Scoring should be broken down into 4 weighted checks:  
      - Verification of name done: 2.5  
-     - Pin code / city mentioned by user: 2.5  
+     - DBR calculation: 2.5  
      - Questions and answers discussed: 2.5  
-     - Scan confirmed: 2.5  
-   - If the scan is confirmed, the total quality score must always be *10.0*.  
-   - Otherwise, sum the applicable components to determine the final score.
+     - Agent appointment booking: 2.5  
+  
 
 3. *customer_intent*:  
    - Capture the customer’s purpose in keywords.  
-   - Include type of issue (e.g., teeth alignment query, payment issue, appointment scheduling).  
-   - Include type of booking or request (e.g., scan booking, reschedule, inquiry).  
+  
+   - Include type of booking or request (e.g., booking, reschedule, inquiry).  
    - Mention the overall status of the conversation (e.g., lead, dropped, in process, call me later).
 
 ### Output JSON fields:
