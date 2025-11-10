@@ -1,5 +1,5 @@
 from typing import Dict, Any, Optional, Tuple
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from loguru import logger
 import os
 
@@ -58,7 +58,7 @@ class CallExecutor:
 
             # Step 1: Get assistant ID from customer data
             logger.info(f"📋 [Call {call_id}] Step 1: Selecting assistant...")
-            
+
             phone_number_id = PHONE_NUMBER_ID
             if not assistant_id:
                 error_msg = "No assistant ID found for customer"
@@ -73,7 +73,19 @@ class CallExecutor:
             customer = CallCustomer(
                 number=phone_number, name=name, numberE164CheckEnabled=True
             )
-            assistant_overrides = {"variableValues": {"name": name, "current_date": datetime.utcnow().isoformat()}}
+
+            # Define GST timezone (UTC +4)
+            gst = timezone(timedelta(hours=4))
+
+            now_gst = datetime.now(gst)
+
+            assistant_overrides = {
+                "variableValues": {
+                    "customer_name": name,
+                    "current_date": now_gst.strftime("%Y-%m-%d"),
+                    "current_time": now_gst.strftime("%H:%M:%S"),
+                }
+            }
             call_request = VAPICallRequest(
                 assistantId=assistant_id,
                 phoneNumberId=phone_number_id,
@@ -105,13 +117,13 @@ class CallExecutor:
                     logger.info(
                         f"📊 [Call {call_id}] Initial status: {call_status.get('status', 'unknown')}"
                     )
-                    
+
                     call_data.vapi_call_id = vapi_call_id
                     call_data.status = CallStatus.INITIATED
                     await call_data.save()
 
                 return True, vapi_call_id, None
-                
+
             else:
                 error_msg = f"VAPI call creation failed: {vapi_response}"
                 logger.error(f"❌ [Call {call_id}] {error_msg}")
@@ -165,29 +177,37 @@ class CallExecutor:
                     custom_url,
                     json=payload,
                     headers={"Content-Type": "application/json"},
-                    timeout=aiohttp.ClientTimeout(total=30)
+                    timeout=aiohttp.ClientTimeout(total=30),
                 ) as response:
                     response_data = await response.json()
-                    
+
                     if response.status == 200:
                         # Extract custom call details from response
                         call_sid = response_data.get("call_sid")
                         call_status = response_data.get("status")
                         phone_number = response_data.get("phone_number")
                         customer_name = response_data.get("customer_name")
-                        
+
                         # Validate required fields
                         if not call_sid:
                             error_msg = "Missing call_sid in custom API response"
                             logger.error(f"❌ [Custom Call {call_id}] {error_msg}")
                             return False, None, error_msg
-                        
-                        logger.success(f"✅ [Custom Call {call_id}] Custom API call successful!")
-                        logger.success(f"🎉 [Custom Call {call_id}] Call SID: {call_sid}")
+
+                        logger.success(
+                            f"✅ [Custom Call {call_id}] Custom API call successful!"
+                        )
+                        logger.success(
+                            f"🎉 [Custom Call {call_id}] Call SID: {call_sid}"
+                        )
                         logger.info(f"📞 [Custom Call {call_id}] Status: {call_status}")
                         logger.info(f"📞 [Custom Call {call_id}] Phone: {phone_number}")
-                        logger.info(f"📞 [Custom Call {call_id}] Customer: {customer_name}")
-                        logger.info(f"📞 [Custom Call {call_id}] Full Response: {response_data}")
+                        logger.info(
+                            f"📞 [Custom Call {call_id}] Customer: {customer_name}"
+                        )
+                        logger.info(
+                            f"📞 [Custom Call {call_id}] Full Response: {response_data}"
+                        )
 
                         # Update call data with custom call details
                         if hasattr(call_data, "vapi_call_id"):
@@ -196,7 +216,9 @@ class CallExecutor:
                             if call_status == "call_initiated":
                                 call_data.status = CallStatus.INITIATED
                             else:
-                                call_data.status = CallStatus.INITIATED  # Default fallback
+                                call_data.status = (
+                                    CallStatus.INITIATED
+                                )  # Default fallback
                             await call_data.save()
 
                         return True, call_sid, None
@@ -213,7 +235,10 @@ class CallExecutor:
             error_msg = f"Custom call execution error: {str(e)}"
             logger.error(f"❌ [Custom Call {call_id}] {error_msg}")
             import traceback
-            logger.error(f"📊 [Custom Call {call_id}] Stack trace: {traceback.format_exc()}")
+
+            logger.error(
+                f"📊 [Custom Call {call_id}] Stack trace: {traceback.format_exc()}"
+            )
             return False, None, error_msg
 
     async def _check_call_status(self, vapi_call_id: str) -> Optional[Dict[str, Any]]:
@@ -232,6 +257,3 @@ class CallExecutor:
         except Exception as e:
             logger.error(f"Error checking call status: {e}")
             return None
-
-
-
