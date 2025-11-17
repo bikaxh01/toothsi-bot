@@ -50,8 +50,8 @@ def analyze_transcript(transcript: str) -> AnalystResult:
     
 
         response = completion(
-            api_key=os.getenv("OPENAI_API_KEY"),
-            model="openai/gpt-5-nano",
+            api_key=os.getenv("OPENROUTER_API_KEY"),
+            model="openrouter/openai/gpt-5-nano",
             messages=[
                 {"content": TRANSCRIPT_ANALYSIS_PROMPT, "role": "system"},
                 {"content": transcript, "role": "user"},
