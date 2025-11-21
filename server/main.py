@@ -65,29 +65,11 @@ async def shutdown_db_client():
 @app.get("/")
 async def root():
     try:
-        # Group pincode data by city and store in KnowledgeBase
-        data = [
-            {
-                "Doctor Name": "Dr. Maria Elena Rodriguez Vasquez",
-                "Specialty": "Cardiology / Cardiologia",
-                "Clinic/Hospital": "Centro Medico ABC Santa Fe",
-                "Address": "Avenida Carlos Graef Fernandez numero ciento treinta y cuatro, Colonia Santa Fe, Cuauhtemoc, Ciudad de Mexico, codigo postal 05348",
-                "Phone Number": "55-5234-7891",
-                "Office Hours": "Monday to Friday, 9 AM to 6 PM / Lunes a viernes, nueve AM a seis PM",
-                "Additional Info": "Accepts appointments / Acepta citas programadas",
-            },
-            {
-                "Doctor Name": "Dr. Jorge Luis Martinez Dominguez",
-                "Specialty": "Cardiology / Cardiologia",
-                "Clinic/Hospital": "Hospital Angeles Roma",
-                "Address": "Calle Queretaro numero cincuenta y cuatro, Colonia Roma Norte, Cuauhtemoc, Ciudad de Mexico, codigo postal 06700",
-                "Phone Number": "55-5689-1234",
-                "Office Hours": "Monday to Saturday, 8 AM to 7 PM / Lunes a sabado, ocho AM a siete PM",
-                "Additional Info": "Emergency services available / Servicios de emergencia disponibles",
-            },
-        ]
-        result = {"result": str(random.choice(data))}
-        return result
+        return {
+            "status": "ok",
+            "message": "VAPI Bot API is running",
+            "version": "1.0.0"
+        }
     except Exception as e:
         logger.error(f"Error in root endpoint: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -434,6 +416,37 @@ async def proxy_media(path: str):
     return Response(content=r.content, media_type=r.headers.get("content-type"))
 
 
+
+def calculate_dbr(monthly_salary, total_credit_limit, total_monthly_emi, credit_limit_factor=0.05, max_dbr=0.5):
+    """
+    Calculate DBR and check eligibility.
+
+    monthly_salary: Monthly income of the user
+    total_credit_limit: Total credit limit across cards/loans
+    total_monthly_emi: Sum of all EMIs per month
+    credit_limit_factor: % of credit limit counted as monthly obligation (default 5%)
+    max_dbr: Maximum allowed DBR for eligibility (default 50%)
+    """
+    
+    # a = 5% of total credit limit
+    a = total_credit_limit * credit_limit_factor
+    
+    # b = total EMI
+    b = total_monthly_emi
+    
+    # DBR formula
+    dbr = (a + b) / monthly_salary
+    
+    eligibility = dbr <= max_dbr
+    
+    return {
+        "a_monthly_credit_burden": a,
+        "b_total_emi": b,
+        "dbr": round(dbr * 100, 2),  # percentage
+        "eligible": eligibility
+    }
+
+
 @app.post("/vapi/tools")
 async def vapi_tools(request: Request):
     """VAPI tools handler - processes tool calls from VAPI"""
@@ -454,50 +467,65 @@ async def vapi_tools(request: Request):
             tool_call_list = message_data.get("toolCallList", [])
             tool_with_tool_call_list = message_data.get("toolWithToolCallList", [])
 
-            logger.info(f"📋 Found {len(tool_call_list)} tool calls")
-            logger.info(f"📋 Tool call list: {tool_call_list}")
-            logger.info(f"📋 Tool with tool call list: {tool_with_tool_call_list}")
-
-            # Process each tool call
-            doctor_data = [
-                {
-                    "Doctor Name": "Dr. Maria Elena Rodriguez Vasquez",
-                    "Specialty": "Cardiology / Cardiologia",
-                    "Clinic/Hospital": "Centro Medico ABC Santa Fe",
-                    "Address": "Avenida Carlos Graef Fernandez numero ciento treinta y cuatro, Colonia Santa Fe, Cuauhtemoc, Ciudad de Mexico, codigo postal 05348",
-                    "Phone Number": "55-5234-7891",
-                    "Office Hours": "Monday to Friday, 9 AM to 6 PM / Lunes a viernes, nueve AM a seis PM",
-                    "Additional Info": "Accepts appointments / Acepta citas programadas",
-                },
-                {
-                    "Doctor Name": "Dr. Jorge Luis Martinez Dominguez",
-                    "Specialty": "Cardiology / Cardiologia",
-                    "Clinic/Hospital": "Hospital Angeles Roma",
-                    "Address": "Calle Queretaro numero cincuenta y cuatro, Colonia Roma Norte, Cuauhtemoc, Ciudad de Mexico, codigo postal 06700",
-                    "Phone Number": "55-5689-1234",
-                    "Office Hours": "Monday to Saturday, 8 AM to 7 PM / Lunes a sabado, ocho AM a siete PM",
-                    "Additional Info": "Emergency services available / Servicios de emergencia disponibles",
-                },
-            ]
-            
-            import random
+          
             results = []
             
-            # Process each tool call and extract tool ID
+            # Process each tool call
             for tool_call in tool_call_list:
                 tool_call_id = tool_call.get("id", "")
-                logger.info(f"🔧 Processing tool call with ID: {tool_call_id}")
+                function_data = tool_call.get("function", {})
+                function_name = function_data.get("name", "")
+                arguments = function_data.get("arguments", {})
                 
-                # Generate result for this specific tool call
-                doctor_result = str(random.choice(doctor_data))
-                results.append({
-                    "toolCallId": tool_call_id,
-                    "result": doctor_result
-                })
+                logger.info(f"🔧 Processing tool call with ID: {tool_call_id}")
+                logger.info(f"🔧 Function name: {function_name}")
+                logger.info(f"🔧 Arguments: {arguments}")
+                
+                # Handle DBR_calculator tool
+                if function_name == "DBR_calculator":
+                    try:
+                        # Parse arguments - they come as strings from VAPI
+                        monthly_salary = float(arguments.get("monthly_salary", 0))
+                        total_monthly_emi = float(arguments.get("total_monthly_emi", 0))
+                        total_credit_limit = float(arguments.get("total_credit_limit", 0))
+                        
+                        logger.info(f"💰 Monthly Salary: {monthly_salary}")
+                        logger.info(f"💳 Total Credit Limit: {total_credit_limit}")
+                        logger.info(f"📊 Total Monthly EMI: {total_monthly_emi}")
+                        
+                        # Calculate DBR
+                        dbr_result = calculate_dbr(
+                            monthly_salary=monthly_salary,
+                            total_credit_limit=total_credit_limit,
+                            total_monthly_emi=total_monthly_emi
+                        )
+                        
+                        logger.info(f"✅ DBR Calculation Result: {dbr_result}")
+                        
+                        # Format result as a readable string for VAPI
+                        result_text = f"DBR Calculation: {dbr_result['dbr']}%. Monthly credit burden: {dbr_result['a_monthly_credit_burden']}, Total EMI: {dbr_result['b_total_emi']}. Eligibility: {'Eligible' if dbr_result['eligible'] else 'Not Eligible'}"
+                        
+                        results.append({
+                            "toolCallId": tool_call_id,
+                            "result": result_text
+                        })
+                        
+                    except Exception as e:
+                        logger.error(f"❌ Error calculating DBR: {e}")
+                        results.append({
+                            "toolCallId": tool_call_id,
+                            "result": f"Error calculating DBR: {str(e)}"
+                        })
+                else:
+                    logger.warning(f"⚠️ Unknown function: {function_name}")
+                    results.append({
+                        "toolCallId": tool_call_id,
+                        "result": f"Unknown function: {function_name}"
+                    })
             
             # If no tool calls found, return empty result
             if not results:
-                results = [{"toolCallId": "", "result": str(random.choice(doctor_data))}]
+                results = [{"toolCallId": "", "result": "No tool calls processed"}]
 
             logger.info(f"🔧 🚀🚀🚀🚀🚀 Results: {results}")
             return {"results": results}
